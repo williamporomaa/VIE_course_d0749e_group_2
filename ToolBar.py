@@ -14,7 +14,7 @@ class ToolBar(QToolBar):
         button_add.triggered.connect(self.button_add_clicked)
         self.addAction(button_add)
 
-        grid_button_add = GridButton()
+        grid_button_add = GridButton(mainWidget)
         self.addWidget(grid_button_add)
 
     def button_add_clicked(self):

@@ -7,10 +7,16 @@ from ToolBar import ToolBar
 
 
 class MainWidget(QWidget):
+    width = 1600
+    height = 1600
+    scene_width = 400
+    scene_height = 400
+
     def __init__(self, dir_path):
         super().__init__()
+        
         self.setWindowTitle("My App")
-        self.setGeometry(300, 300, 1600, 1600)
+        self.setGeometry(300, 300, self.width, self.height)
 
         # toolbar
         self.toolbar = ToolBar(self)
