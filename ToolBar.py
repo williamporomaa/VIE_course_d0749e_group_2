@@ -1,7 +1,7 @@
 from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QAction, QIcon, QImage, QPixmap
-from PySide6.QtWidgets import QToolBar, QGraphicsPixmapItem
-
+from PySide6.QtWidgets import QToolBar, QGraphicsPixmapItem, QComboBox, QListWidget
+from grid_button import GridButton
 
 class ToolBar(QToolBar):
     def __init__(self, mainWidget):
@@ -13,6 +13,9 @@ class ToolBar(QToolBar):
         button_add = QAction(QIcon("toolbarIcons/plus-button.png"), "Add", self)
         button_add.triggered.connect(self.button_add_clicked)
         self.addAction(button_add)
+
+        grid_button_add = GridButton()
+        self.addWidget(grid_button_add)
 
     def button_add_clicked(self):
         image = QImage(self.mainWidget.fileSystem.get_selected_path())
