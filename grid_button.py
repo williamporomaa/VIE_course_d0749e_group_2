@@ -1,6 +1,5 @@
-from PySide6.QtCore import QSize, Qt, Signal, QRectF
-from PySide6.QtGui import QAction, QIcon, QImage, QPixmap
-from PySide6.QtWidgets import QComboBox, QListWidget, QWidget
+from PySide6.QtCore import QRectF
+from PySide6.QtWidgets import QComboBox, QInputDialog
 
 class GridButton(QComboBox):
     def __init__(self, mainWidget):
@@ -18,16 +17,31 @@ class GridButton(QComboBox):
         scene_height = self.mainWidget.scene_height
         
         if(index == 0):
-            rectangle = QRectF()
             #left cord, top cord, width, height
             for i in range(8):
                 for j in range(8):
                     self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)
         elif(index == 1):
-            print("index is 1")
+            for i in range(7):
+                for j in range(6):
+                    self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)
         elif(index == 2):
-            print("index is 2")
+            for i in range(10):
+                for j in range(10):
+                    self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)
         elif(index == 3):
-            print("index is 3")
+            custom_y, ok = QInputDialog.getInt(self.mainWidget, "Custom Grid", "Grid height:")
+            if ok and custom_y:
+                custom_x, ok = QInputDialog.getInt(self.mainWidget, "Custom Grid", "Grid length:")
+                if ok and custom_x:
+                    for i in range(custom_x):
+                        for j in range(custom_y):
+                            self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)
+                else:
+                    #idk some error handling here
+                    return
+            else:
+                #idk some error handling here
+                return
         else:
             print("index = ",index)
