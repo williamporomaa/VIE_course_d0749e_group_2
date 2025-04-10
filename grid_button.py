@@ -14,11 +14,15 @@ class GridButton(QComboBox):
         self.currentIndexChanged.connect(self.generateGrid)
 
     def generateGrid(self, index):
+        scene_width = self.mainWidget.scene_width
+        scene_height = self.mainWidget.scene_height
         
         if(index == 0):
             rectangle = QRectF()
             #left cord, top cord, width, height
-            self.mainWidget.scene.addRect(0, 0, self.mainWidget.scene_width/8, self.mainWidget.scene_height/8)
+            for i in range(8):
+                for j in range(8):
+                    self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)
         elif(index == 1):
             print("index is 1")
         elif(index == 2):

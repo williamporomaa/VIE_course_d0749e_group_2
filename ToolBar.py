@@ -35,5 +35,4 @@ class ToolBar(QToolBar):
         image = QImage(self.mainWidget.fileSystem.get_selected_path())
         pic = QGraphicsPixmapItem()
         pic.setPixmap(QPixmap.fromImage(image))
-        self.mainWidget.scene.setSceneRect(0, 0, 400, 400)
         self.mainWidget.scene.addItem(pic)

@@ -1,6 +1,7 @@
 import sys
 
-from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsScene, QGraphicsView, QHBoxLayout, QSizePolicy
+from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsScene, QGraphicsView, QHBoxLayout, \
+    QSizePolicy
 
 from FileSystem import FileSystemView
 from ToolBar import ToolBar
@@ -23,6 +24,7 @@ class MainWidget(QWidget):
 
         # graphic view
         self.scene = QGraphicsScene()
+        self.scene.setSceneRect(0, 0, 400, 400)
         view = QGraphicsView(self.scene)
         view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
