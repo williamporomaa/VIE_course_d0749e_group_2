@@ -19,9 +19,6 @@ class MainWidget(QWidget):
         self.setWindowTitle("My App")
         self.setGeometry(300, 300, self.width, self.height)
 
-        # toolbar
-        self.toolbar = ToolBar(self)
-
         # graphic view
         self.scene = QGraphicsScene()
         self.scene.setSceneRect(0, 0, 400, 400)
@@ -31,6 +28,9 @@ class MainWidget(QWidget):
         # file system
         self.fileSystem = FileSystemView(dir_path)
         self.fileSystem.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        # toolbar   #note: Changed so that tool bar is generated last, this is so that the scene exists before grid_button is called, otherwise its initilaziation doesnt work
+        self.toolbar = ToolBar(self)
 
         # organize the widgets
         # vertical layout (toolbar - horizontal layout [view - file system])

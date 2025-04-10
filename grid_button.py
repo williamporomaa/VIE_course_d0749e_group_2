@@ -1,10 +1,12 @@
-from PySide6.QtCore import QRectF
-from PySide6.QtWidgets import QComboBox, QInputDialog
+from PySide6.QtCore import QRect
+from PySide6.QtWidgets import QComboBox, QInputDialog, QGraphicsRectItem
 
 class GridButton(QComboBox):
     def __init__(self, mainWidget):
         super().__init__()
         self.mainWidget = mainWidget
+        dummy_rectangle = r1 = QGraphicsRectItem(0,0,0,0)
+        self.currentGrid = self.mainWidget.scene.createItemGroup([dummy_rectangle])
         QComboBox.addItem(self, "8x8 grid")
         QComboBox.addItem(self, "7x6 grid")
         QComboBox.addItem(self, "10x10 grid")
@@ -15,6 +17,9 @@ class GridButton(QComboBox):
     def generateGrid(self, index):
         scene_width = self.mainWidget.scene_width
         scene_height = self.mainWidget.scene_height
+        
+        ##clear current grid:
+        #self.mainWidget.destroyItemGroup(self.currentGrid)
         
         if(index == 0):
             #left cord, top cord, width, height
