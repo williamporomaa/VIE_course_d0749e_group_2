@@ -5,8 +5,9 @@ class GridButton(QComboBox):
     def __init__(self, mainWidget):
         super().__init__()
         self.mainWidget = mainWidget
-        dummy_rectangle = r1 = QGraphicsRectItem(0,0,0,0)
-        self.currentGrid = self.mainWidget.scene.createItemGroup([dummy_rectangle])
+        #Create empty list
+        self.currentGrid = []
+        QComboBox.addItem(self, "Generate Grid")
         QComboBox.addItem(self, "8x8 grid")
         QComboBox.addItem(self, "7x6 grid")
         QComboBox.addItem(self, "10x10 grid")
@@ -19,29 +20,31 @@ class GridButton(QComboBox):
         scene_height = self.mainWidget.scene_height
         
         ##clear current grid:
-        #self.mainWidget.destroyItemGroup(self.currentGrid)
-        
-        if(index == 0):
+        for item in self.currentGrid:
+            self.mainWidget.scene.removeItem(item)
+        self.currentGrid.clear()
+
+        if(index == 1):
             #left cord, top cord, width, height
             for i in range(8):
                 for j in range(8):
-                    self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)
-        elif(index == 1):
+                    self.currentGrid.append(self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)) 
+        elif(index == 2):
             for i in range(7):
                 for j in range(6):
-                    self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)
-        elif(index == 2):
+                    self.currentGrid.append(self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8))
+        elif(index == 3):
             for i in range(10):
                 for j in range(10):
-                    self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)
-        elif(index == 3):
+                    self.currentGrid.append(self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8))
+        elif(index == 4):
             custom_y, ok = QInputDialog.getInt(self.mainWidget, "Custom Grid", "Grid height:")
             if ok and custom_y:
                 custom_x, ok = QInputDialog.getInt(self.mainWidget, "Custom Grid", "Grid length:")
                 if ok and custom_x:
                     for i in range(custom_x):
                         for j in range(custom_y):
-                            self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)
+                            self.currentGrid.append(self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8))
                 else:
                     #idk some error handling here
                     return

@@ -9,15 +9,16 @@ class SaveLoadButton(QComboBox):
     def __init__(self, mainWidget):
         super().__init__()
         self.mainWidget = mainWidget
+        QComboBox.addItem(self, "Save/load")
         QComboBox.addItem(self, "Save Game")
         QComboBox.addItem(self, "Load Game")
 
         self.currentIndexChanged.connect(self.handleAction)
 
     def handleAction(self, index):
-        if index == 0:  # Save Game
+        if index == 1:  # Save Game
             self.saveGame()
-        elif index == 1:  # Load Game
+        elif index == 2:  # Load Game
             self.loadGame()
 
     def saveGame(self):
