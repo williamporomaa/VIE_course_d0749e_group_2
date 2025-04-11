@@ -23,6 +23,7 @@ class ToolBar(QToolBar):
         save_load_button.loadGameSignal.connect(self.load_game)
         self.addWidget(save_load_button)
 
+    """
     def save_game(self):
         # Implement the logic to save the game
         print("Game saved!")
@@ -30,6 +31,7 @@ class ToolBar(QToolBar):
     def load_game(self):
         # Implement the logic to load the game
         print("Game loaded!")
+    """
 
     def button_add_clicked(self):
         image = QImage(self.mainWidget.fileSystem.get_selected_path())

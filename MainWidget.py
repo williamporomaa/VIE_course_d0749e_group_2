@@ -1,7 +1,7 @@
 import sys
 
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsScene, QGraphicsView, QHBoxLayout, \
-    QSizePolicy
+    QSizePolicy, QGraphicsItem
 
 from FileSystem import FileSystemView
 from ToolBar import ToolBar
@@ -42,7 +42,42 @@ class MainWidget(QWidget):
         layoutV.addWidget(self.toolbar)
         layoutV.addLayout(layoutH)
         self.setLayout(layoutV)
+        
+    def get_game_state(self):
+        # Return the current game state as a dictionary
+        return {
+            "pieces": self.get_pieces_data(),
+            "score": self.score,
+            "level": self.level
+        }
+        
+    def set_game_state(self, state):
+        # Update the game state from the given dictionary
+        self.set_pieces_data(state["pieces"])
+        self.score = state["score"]
+        self.level = state["level"]
 
+    def get_pieces_data(self):
+        pieces_data = []
+        for item in self.scene.items():
+            if isinstance(item, QGraphicsItem):
+                piece_data = {
+                    "x": item.x(),
+                    "y": item.y(),
+                    "type": item.data(0)
+                }
+                pieces_data.append(piece_data)
+        return pieces_data
+
+    def set_pieces_data(self, pieces_data):
+        self.scene.clear()
+        for piece_data in pieces_data:
+            piece = QGraphicsItem()
+            piece.setX(piece_data["x"])
+            piece.setY(piece_data["y"])
+            piece.setData(0, piece_data["type"])
+            self.scene.addItem(piece)
+    
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     dirPath = r'./testDir'
