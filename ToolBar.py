@@ -1,6 +1,8 @@
 from PySide6.QtCore import QSize, Qt
-from PySide6.QtGui import QAction, QIcon, QImage, QPixmap
-from PySide6.QtWidgets import QToolBar, QGraphicsPixmapItem, QComboBox, QListWidget
+from PySide6.QtGui import QAction, QIcon, QImage
+from PySide6.QtWidgets import QToolBar
+
+from GraphicItem import GraphicItem
 from grid_button import GridButton
 from SaveLoadButton import SaveLoadButton
 
@@ -23,7 +25,7 @@ class ToolBar(QToolBar):
         save_load_button.loadGameSignal.connect(self.load_game)
         self.addWidget(save_load_button)
 
-    """
+
     def save_game(self):
         # Implement the logic to save the game
         print("Game saved!")
@@ -31,10 +33,8 @@ class ToolBar(QToolBar):
     def load_game(self):
         # Implement the logic to load the game
         print("Game loaded!")
-    """
+
 
     def button_add_clicked(self):
         image = QImage(self.mainWidget.fileSystem.get_selected_path())
-        pic = QGraphicsPixmapItem()
-        pic.setPixmap(QPixmap.fromImage(image))
-        self.mainWidget.scene.addItem(pic)
+        GraphicItem(image,self.mainWidget.scene)
