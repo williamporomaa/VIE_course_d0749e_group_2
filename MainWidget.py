@@ -1,8 +1,9 @@
 import sys
 
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsScene, QGraphicsView, QHBoxLayout, \
-    QSizePolicy, QGraphicsItem
+    QSizePolicy, QGraphicsItem, QListWidget
 
+from AssetList import AssetList
 from FileSystem import FileSystemView
 from ToolBar import ToolBar
 
@@ -25,6 +26,10 @@ class MainWidget(QWidget):
         view = QGraphicsView(self.scene)
         view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
+        # item view
+        self.assetList = AssetList()
+        self.assetList.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
         # file system
         self.fileSystem = FileSystemView(dir_path)
         self.fileSystem.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -35,6 +40,7 @@ class MainWidget(QWidget):
         # organize the widgets
         # vertical layout (toolbar - horizontal layout [view - file system])
         layoutH = QHBoxLayout()
+        layoutH.addWidget(self.assetList, stretch=1)
         layoutH.addWidget(view, stretch=3)
         layoutH.addWidget(self.fileSystem, stretch=1)
 

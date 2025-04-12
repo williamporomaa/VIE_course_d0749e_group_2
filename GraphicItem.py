@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsItem
 
 
 class GraphicItem(QGraphicsPixmapItem):
-    def __init__(self, image, scene):
+    def __init__(self, image, mainWidget, name):
         super().__init__()
 
         self.setPixmap(QPixmap.fromImage(image))
@@ -11,7 +11,9 @@ class GraphicItem(QGraphicsPixmapItem):
         self.setFlag(QGraphicsItem.ItemIsSelectable, True)
         self.setFlag(QGraphicsItem.ItemIsFocusable, True)
 
-        scene.addItem(self)
+        mainWidget.scene.addItem(self)
+        mainWidget.assetList.addItemAndName(name, self)
+
 
     def keyPressEvent(self, event, /):
         if self.isSelected():
