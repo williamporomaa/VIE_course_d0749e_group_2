@@ -25,18 +25,25 @@ class GridButton(QComboBox):
         self.currentGrid.clear()
 
         if(index == 1):
-            #left cord, top cord, width, height
+
             for i in range(8):
                 for j in range(8):
+                                            #left x-cord, left y-cord, width, height
                     self.currentGrid.append(self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8)) 
+            self.mainWidget.scene.gridSizeX = 8
+            self.mainWidget.scene.gridSizeY = 8
         elif(index == 2):
             for i in range(7):
                 for j in range(6):
                     self.currentGrid.append(self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8))
+            self.mainWidget.scene.gridSizeX = 7
+            self.mainWidget.scene.gridSizeY = 6
         elif(index == 3):
             for i in range(10):
                 for j in range(10):
                     self.currentGrid.append(self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8))
+            self.mainWidget.scene.gridSizeX = 10
+            self.mainWidget.scene.gridSizeY = 10
         elif(index == 4):
             custom_y, ok = QInputDialog.getInt(self.mainWidget, "Custom Grid", "Grid height:")
             if ok and custom_y:
@@ -45,6 +52,8 @@ class GridButton(QComboBox):
                     for i in range(custom_x):
                         for j in range(custom_y):
                             self.currentGrid.append(self.mainWidget.scene.addRect(scene_width*i/8, scene_height*j/8, scene_width/8, scene_height/8))
+                    self.mainWidget.scene.gridSizeX = custom_x
+                    self.mainWidget.scene.gridSizeY = custom_y
                 else:
                     #idk some error handling here
                     return
