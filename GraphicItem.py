@@ -11,6 +11,10 @@ class GraphicItem(QGraphicsPixmapItem):
         self.setFlag(QGraphicsItem.ItemIsSelectable, True)
         self.setFlag(QGraphicsItem.ItemIsFocusable, True)
 
+        height = self.sceneBoundingRect().height()
+        width = self.sceneBoundingRect().width()
+        self.setOffset(-width/2,-height/2)
+
         mainWidget.scene.addItem(self)
         mainWidget.assetList.addItemAndName(name, self)
 
@@ -38,8 +42,8 @@ class GraphicItem(QGraphicsPixmapItem):
         y = self.itterativeSearch(y_size, y)
         print("post-binary search x: ", x, " post-binary search y: ", y)
 
-        self.setX(x*self.mainWidget.scene.grid_size)
-        self.setY(y*self.mainWidget.scene.grid_size)
+        self.setX((x+0.5)*self.mainWidget.scene.grid_size)
+        self.setY((y+0.5)*self.mainWidget.scene.grid_size)
 
     #works
     def itterativeSearch(self, max, point):
