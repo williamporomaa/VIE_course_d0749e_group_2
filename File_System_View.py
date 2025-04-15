@@ -18,7 +18,7 @@ class FileSystemView(QWidget):
         layout.addWidget(self.tree)
         self.setLayout(layout)
 
-    def get_selected_path(self):
+    def getSelectedPath(self):
         index = self.tree.currentIndex()
         info = self.tree.model().fileInfo(index)
         return info.absoluteFilePath(), info.baseName()

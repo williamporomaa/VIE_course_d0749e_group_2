@@ -3,10 +3,10 @@ import sys
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsScene, QGraphicsView, QHBoxLayout, \
     QSizePolicy, QGraphicsItem, QListWidget
 
-from AssetList import AssetList
-from FileSystem import FileSystemView
-from ToolBar import ToolBar
-from graphics_scene import GraphicScene
+from Game_Elements_List import AssetList
+from File_System_View import FileSystemView
+from Toolbar import ToolBar
+from Graphics_Scene import GraphicScene
 
 class MainWidget(QWidget):
     width = 1600
@@ -49,21 +49,21 @@ class MainWidget(QWidget):
         layoutV.addLayout(layoutH)
         self.setLayout(layoutV)
         
-    def get_game_state(self):
+    def getGameState(self):
         # Return the current game state as a dictionary
         return {
-            "pieces": self.get_pieces_data(),
+            "pieces": self.getPiecesData(),
             "score": self.score,
             "level": self.level
         }
         
-    def set_game_state(self, state):
+    def setGameState(self, state):
         # Update the game state from the given dictionary
-        self.set_pieces_data(state["pieces"])
+        self.setPiecesData(state["pieces"])
         self.score = state["score"]
         self.level = state["level"]
 
-    def get_pieces_data(self):
+    def getPiecesData(self):
         pieces_data = []
         for item in self.scene.items():
             if isinstance(item, QGraphicsItem):
@@ -75,7 +75,7 @@ class MainWidget(QWidget):
                 pieces_data.append(piece_data)
         return pieces_data
 
-    def set_pieces_data(self, pieces_data):
+    def setPiecesData(self, pieces_data):
         self.scene.clear()
         for piece_data in pieces_data:
             piece = QGraphicsItem()

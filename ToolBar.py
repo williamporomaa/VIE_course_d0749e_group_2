@@ -4,10 +4,10 @@ from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QAction, QIcon, QImage
 from PySide6.QtWidgets import QToolBar, QApplication
 
-from FileSystem import FileSystemView
-from GraphicItem import GraphicItem
-from grid_button import GridButton
-from SaveLoadButton import SaveLoadButton
+from File_System_View import FileSystemView
+from Graphic_Item import GraphicItem
+from Grid_Manager import GridButton
+from Save_Load_Manager import SaveLoadButton
 
 class ToolBar(QToolBar):
     def __init__(self, mainWidget):
@@ -39,6 +39,6 @@ class ToolBar(QToolBar):
 
 
     def button_add_clicked(self):
-        path, name = self.mainWidget.fileSystem.get_selected_path()
+        path, name = self.mainWidget.fileSystem.getSelectedPath()
         image = QImage(path)
         GraphicItem(image, self.mainWidget, name)

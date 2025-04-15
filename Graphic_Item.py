@@ -38,15 +38,15 @@ class GraphicItem(QGraphicsPixmapItem):
         print("release x: ", x, " releasy y:", y)
 
         #binary search in x and then do binary search in y
-        x = self.itterativeSearch(x_size, x)
-        y = self.itterativeSearch(y_size, y)
+        x = self.iterativeSearch(x_size, x)
+        y = self.iterativeSearch(y_size, y)
         print("post-binary search x: ", x, " post-binary search y: ", y)
 
         self.setX((x+0.5)*self.mainWidget.scene.grid_size)
         self.setY((y+0.5)*self.mainWidget.scene.grid_size)
 
     #works
-    def itterativeSearch(self, max, point):
+    def iterativeSearch(self, max, point):
         if(self.mainWidget.scene.grid_size > point):
             return 0
         i = 1
