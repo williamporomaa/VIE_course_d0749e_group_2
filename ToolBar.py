@@ -17,7 +17,7 @@ class ToolBar(QToolBar):
         self.mainWidget = mainWidget
 
         button_add = QAction(QIcon("toolbarIcons/plus-button.png"), "Add", self)
-        button_add.triggered.connect(self.button_add_clicked)
+        button_add.triggered.connect(self.buttonAddClicked)
         self.addAction(button_add)
 
         grid_button_add = GridButton(mainWidget)
@@ -38,7 +38,7 @@ class ToolBar(QToolBar):
         print("Game loaded!")
 
 
-    def button_add_clicked(self):
+    def buttonAddClicked(self):
         path, name = self.mainWidget.fileSystem.getSelectedPath()
         image = QImage(path)
         GraphicItem(image, self.mainWidget, name)
