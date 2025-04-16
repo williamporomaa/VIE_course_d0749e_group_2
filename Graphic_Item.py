@@ -44,6 +44,8 @@ class GraphicItem(QGraphicsPixmapItem):
 
         self.setX((x+0.5)*self.mainWidget.scene.grid_size)
         self.setY((y+0.5)*self.mainWidget.scene.grid_size)
+        
+        super().mouseReleaseEvent(event)
 
     #works
     def iterativeSearch(self, max, point):
