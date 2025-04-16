@@ -11,7 +11,7 @@ class AssetList(QListWidget):
     def addItemAndName(self, item_name, item):
         # making sure that the item name is not already used
         new_item_name = item_name
-        counter = 0;
+        counter = 0
         while(True):
             if not new_item_name in self.items:
                 break

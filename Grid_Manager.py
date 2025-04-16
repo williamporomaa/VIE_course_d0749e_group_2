@@ -1,5 +1,5 @@
 from PySide6.QtCore import QRect
-from PySide6.QtWidgets import QComboBox, QInputDialog, QGraphicsRectItem
+from PySide6.QtWidgets import QComboBox, QInputDialog, QGraphicsRectItem, QMessageBox
 import math
 
 class GridButton(QComboBox):
@@ -65,9 +65,11 @@ class GridButton(QComboBox):
                     self.mainWidget.scene.gridSizeY = custom_y
                 else:
                     #idk some error handling here
+                    QMessageBox.critical(self.mainWidget, "Error", "Invalid input for grid length.")
                     return
             else:
                 #idk some error handling here
+                QMessageBox.critical(self.mainWidget, "Error", "Invalid input for grid height.")
                 return
         else:
             print("index = ",index)
