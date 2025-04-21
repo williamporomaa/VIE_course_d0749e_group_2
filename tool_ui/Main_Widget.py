@@ -53,15 +53,11 @@ class MainWidget(QWidget):
         # Return the current game state as a dictionary
         return {
             "pieces": self.getPiecesData(),
-            "score": self.score,
-            "level": self.level
         }
         
     def setGameState(self, state):
         # Update the game state from the given dictionary
         self.setPiecesData(state["pieces"])
-        self.score = state["score"]
-        self.level = state["level"]
 
     def getPiecesData(self):
         pieces_data = []

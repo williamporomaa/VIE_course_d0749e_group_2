@@ -30,12 +30,15 @@ class ToolBar(QToolBar):
 
 
     def save_game(self):
-        # Implement the logic to save the game
-        print("Game saved!")
+        # May need additional logic before saving, who knows
+        print("Preparing to save the game...")
+        self.mainWidget.saveLoadManager.saveGame()
 
     def load_game(self):
-        # Implement the logic to load the game
-        print("Game loaded!")
+        # May need additional logic before loading, who knows
+        print("Preparing to load the game...")
+        self.mainWidget.saveLoadManager.loadGame()
+
 
 
     def buttonAddClicked(self):
