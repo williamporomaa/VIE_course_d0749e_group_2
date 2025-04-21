@@ -5,7 +5,7 @@ from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsScene
 
 from Game_Elements_List import AssetList
 from File_System_View import FileSystemView
-from Toolbar import ToolBar
+from Tool_Bar import ToolBar
 from Graphics_Scene import GraphicScene
 
 class MainWidget(QWidget):
