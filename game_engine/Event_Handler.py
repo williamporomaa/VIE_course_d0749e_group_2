@@ -4,7 +4,7 @@ import sys
 class EventHandler:
     def __init__(self, game_handler):
         self.game_handler = game_handler
-        self.quit = False
+        self.selected_element = None
 
     def handle_events(self):
         for event in pg.event.get():

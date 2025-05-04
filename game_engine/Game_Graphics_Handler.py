@@ -19,4 +19,13 @@ class GraphicsHandler():
     def render_Scene(self):
         self.background = pg.transform.scale(self.background, (self.scene_width, self.scene_width))
         self.screen.blit(self.background, (0,0))
+
+        for entity in self.entities_to_render:
+            if entity.image_path:
+                image = pg.image.load(entity.image_path).convert_alpha()
+                image = pg.transform.scale(image, (entity.width, entity.height))
+                self.screen.blit(image, (entity.x, entity.y))
+            else:
+                pg.draw.rect(self.screen, (0, 0, 0), (entity.x, entity.y, entity.width, entity.height))
+                
         pg.display.update()
