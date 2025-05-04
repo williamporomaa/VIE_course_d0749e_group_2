@@ -1,6 +1,7 @@
 import sys
 import pygame as pg
 import os
+
 #surface = pygame.image.load('foo.png'), adds a surface
 #display.flip() re-renders the scene
 #rectangle = Rect(10, 20, 30, 30)
@@ -16,13 +17,15 @@ class GraphicsHandler():
         self.background = pg.image.load(image_path).convert()
         self.screen = main_surface
 
+
     def render_Scene(self):
         self.background = pg.transform.scale(self.background, (self.scene_width, self.scene_width))
         self.screen.blit(self.background, (0,0))
 
         for entity in self.entities_to_render:
             if entity.image_path:
-                image = pg.image.load(entity.image_path).convert_alpha()
+                path = os.path.join("game_engine", "images", entity.image_path)
+                image = pg.image.load(path).convert_alpha()
                 image = pg.transform.scale(image, (entity.width, entity.height))
                 self.screen.blit(image, (entity.x, entity.y))
             else:
