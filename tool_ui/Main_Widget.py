@@ -30,19 +30,14 @@ class MainWidget(QWidget):
         self.assetList = AssetList()
         self.assetList.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-        # file system
-        self.fileSystem = FileSystemView(dir_path)
-        self.fileSystem.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-
         # toolbar   #note: Changed so that tool bar is generated last, this is so that the scene exists before grid_button is called, otherwise its initilaziation doesnt work
-        self.toolbar = ToolBar(self)
+        self.toolbar = ToolBar(self, dir_path)
 
         # organize the widgets
-        # vertical layout (toolbar - horizontal layout [view - file system])
+        # vertical layout (toolbar - horizontal layout [item list - view - item attributes])
         layoutH = QHBoxLayout()
         layoutH.addWidget(self.assetList, stretch=1)
         layoutH.addWidget(view, stretch=3)
-        layoutH.addWidget(self.fileSystem, stretch=1)
 
         layoutV = QVBoxLayout()
         layoutV.addWidget(self.toolbar)

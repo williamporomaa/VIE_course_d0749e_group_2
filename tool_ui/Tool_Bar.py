@@ -10,13 +10,15 @@ from Grid_Manager import GridButton
 from Save_Load_Manager import SaveLoadButton
 
 class ToolBar(QToolBar):
-    def __init__(self, mainWidget):
+    def __init__(self, mainWidget, dir_path):
         super().__init__()
         self.setIconSize(QSize(16, 16))
         self.setToolButtonStyle(Qt.ToolButtonIconOnly)
         self.mainWidget = mainWidget
 
-        button_add = QAction(QIcon("toolbarIcons/plus-button.png"), "Add", self)
+        self.fileSystem = FileSystemView(dir_path, mainWidget)
+
+        button_add = QAction(QIcon("../toolbarIcons/plus-button.png"), "Add", self)
         button_add.triggered.connect(self.buttonAddClicked)
         self.addAction(button_add)
 
@@ -39,9 +41,6 @@ class ToolBar(QToolBar):
         print("Preparing to load the game...")
         self.mainWidget.saveLoadManager.loadGame()
 
-
-
     def buttonAddClicked(self):
-        path, name = self.mainWidget.fileSystem.getSelectedPath()
-        image = QImage(path)
-        GraphicItem(image, self.mainWidget, name)
+        self.fileSystem.show()
+
