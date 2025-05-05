@@ -7,6 +7,8 @@ from Game_Elements_List import AssetList
 from File_System_View import FileSystemView
 from Tool_Bar import ToolBar
 from Graphics_Scene import GraphicScene
+from tool_ui.Game_Element_Settings import ElementView
+
 
 class MainWidget(QWidget):
     width = 1600
@@ -26,23 +28,34 @@ class MainWidget(QWidget):
         view = QGraphicsView(self.scene)
         view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-        # item view
-        self.assetList = AssetList()
+        # item list
+        self.assetList = AssetList(self)
         self.assetList.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        # element view
+        self.elementView = QVBoxLayout()
+        self.elementOpened = []
 
         # toolbar   #note: Changed so that tool bar is generated last, this is so that the scene exists before grid_button is called, otherwise its initilaziation doesnt work
         self.toolbar = ToolBar(self, dir_path)
 
         # organize the widgets
         # vertical layout (toolbar - horizontal layout [item list - view - item attributes])
-        layoutH = QHBoxLayout()
-        layoutH.addWidget(self.assetList, stretch=1)
-        layoutH.addWidget(view, stretch=3)
+        self.layoutH = QHBoxLayout()
+        self.layoutH.addWidget(self.assetList, stretch=1)
+        self.layoutH.addWidget(view, stretch=3)
+        self.layoutH.addLayout(self.elementView)
 
         layoutV = QVBoxLayout()
         layoutV.addWidget(self.toolbar)
-        layoutV.addLayout(layoutH)
+        layoutV.addLayout(self.layoutH)
         self.setLayout(layoutV)
+
+    def addElementView(self, item):
+        if not item.name in self.elementOpened:
+            view = ElementView(self, item)
+            self.elementView.addWidget(view)
+            self.elementOpened.append(item.name)
         
     def getGameState(self):
         # Return the current game state as a dictionary

@@ -1,14 +1,18 @@
 from PySide6.QtCore import QAbstractListModel
 from PySide6.QtWidgets import QWidget, QTreeView, QListView, QListWidget
 
+from tool_ui.Game_Element_Settings import ElementView
+
 
 class AssetList(QListWidget):
-    def __init__(self):
+    def __init__(self, main_widget):
         super().__init__()
 
         self.items = {}
         self.lastSelectedItem = None
         self.itemClicked.connect(self.onItemClick)
+        self.currentItemChanged.connect(self.onCurrentItemChange)
+        self.mainWidget = main_widget
 
     def addItemAndName(self, item_name, item):
         # making sure that the item name is not already used
@@ -32,3 +36,7 @@ class AssetList(QListWidget):
             self.items[self.lastSelectedItem].setSelected(False)
         self.lastSelectedItem = item.text()
         self.items[self.lastSelectedItem].setSelected(True)
+
+    def onCurrentItemChange(self, current, previous):
+        self.mainWidget.addElementView(self.items[current.text()])
+
