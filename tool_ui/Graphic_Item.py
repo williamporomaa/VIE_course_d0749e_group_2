@@ -16,7 +16,8 @@ class GraphicItem(QGraphicsPixmapItem):
         self.setOffset(-width/2,-height/2)
 
         mainWidget.scene.addItem(self)
-        mainWidget.assetList.addItemAndName(name, self)
+        new_name = mainWidget.assetList.addItemAndName(name, self)
+        self.name = new_name
 
         self.mainWidget = mainWidget
 
@@ -28,6 +29,10 @@ class GraphicItem(QGraphicsPixmapItem):
             elif event.key() == Qt.Key_Minus:
                 #moins
                 self.setScale(self.scale() - 0.1)
+
+    def mousePressEvent(self, event, /):
+        list = self.mainWidget.assetList
+        list.setCurrentItem(list.findItems(self.name,Qt.MatchFixedString)[0])
     
     def mouseReleaseEvent(self, event):
         x_size = self.mainWidget.scene.gridSizeX

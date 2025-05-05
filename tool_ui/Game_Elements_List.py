@@ -7,6 +7,8 @@ class AssetList(QListWidget):
         super().__init__()
 
         self.items = {}
+        self.lastSelectedItem = None
+        self.itemClicked.connect(self.onItemClick)
 
     def addItemAndName(self, item_name, item):
         # making sure that the item name is not already used
@@ -22,3 +24,11 @@ class AssetList(QListWidget):
         # adding the item into the list
         self.items[new_item_name] = item
         self.addItem(new_item_name)
+
+        return new_item_name
+
+    def onItemClick(self, item):
+        if self.lastSelectedItem is not None:
+            self.items[self.lastSelectedItem].setSelected(False)
+        self.lastSelectedItem = item.text()
+        self.items[self.lastSelectedItem].setSelected(True)
