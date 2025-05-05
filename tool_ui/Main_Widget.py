@@ -1,10 +1,9 @@
 import sys
 
-from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsScene, QGraphicsView, QHBoxLayout, \
-    QSizePolicy, QGraphicsItem, QListWidget
+from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsView, QHBoxLayout, \
+    QSizePolicy, QGraphicsItem
 
 from Game_Elements_List import AssetList
-from File_System_View import FileSystemView
 from Tool_Bar import ToolBar
 from Graphics_Scene import GraphicScene
 from tool_ui.Game_Element_Settings import ElementView

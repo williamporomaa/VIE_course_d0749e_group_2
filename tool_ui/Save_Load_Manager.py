@@ -1,7 +1,6 @@
 import json
-from PySide6.QtCore import QSize, Qt, Signal, QRectF
-from PySide6.QtGui import QAction, QIcon, QImage, QPixmap
-from PySide6.QtWidgets import QComboBox, QListWidget, QWidget, QFileDialog, QMessageBox
+from PySide6.QtCore import Signal
+from PySide6.QtWidgets import QComboBox, QFileDialog, QMessageBox
 
 class SaveLoadButton(QComboBox):
     saveGameSignal = Signal()

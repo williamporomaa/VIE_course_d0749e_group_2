@@ -1,11 +1,8 @@
-import sys
-
 from PySide6.QtCore import QSize, Qt
-from PySide6.QtGui import QAction, QIcon, QImage
-from PySide6.QtWidgets import QToolBar, QApplication
+from PySide6.QtGui import QAction, QIcon
+from PySide6.QtWidgets import QToolBar
 
 from File_System_View import FileSystemView
-from Graphic_Item import GraphicItem
 from Grid_Manager import GridButton
 from Save_Load_Manager import SaveLoadButton
 

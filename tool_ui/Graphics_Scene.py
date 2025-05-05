@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QApplication, QWidget, QGraphicsScene, QGraphicsView
+from PySide6.QtWidgets import QGraphicsScene
 
 class GraphicScene(QGraphicsScene):
     gridSizeX = 0

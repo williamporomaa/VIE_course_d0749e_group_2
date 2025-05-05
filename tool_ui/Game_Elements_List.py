@@ -1,7 +1,4 @@
-from PySide6.QtCore import QAbstractListModel
-from PySide6.QtWidgets import QWidget, QTreeView, QListView, QListWidget
-
-from tool_ui.Game_Element_Settings import ElementView
+from PySide6.QtWidgets import QListWidget
 
 
 class AssetList(QListWidget):

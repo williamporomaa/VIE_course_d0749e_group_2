@@ -1,4 +1,4 @@
-from PySide6.QtGui import QPixmap, Qt, QKeySequence
+from PySide6.QtGui import QPixmap, Qt
 from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsItem
 
 

@@ -1,5 +1,4 @@
-from PySide6.QtCore import QRect
-from PySide6.QtWidgets import QComboBox, QInputDialog, QGraphicsRectItem, QMessageBox
+from PySide6.QtWidgets import QComboBox, QInputDialog, QMessageBox
 import math
 
 class GridButton(QComboBox):
