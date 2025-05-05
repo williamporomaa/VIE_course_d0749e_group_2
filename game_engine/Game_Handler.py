@@ -19,13 +19,14 @@ class GameHandler():
         while True:
             self.graphics_handler.render_Scene()
             self.event_handler.handle_events()
+            time.sleep(1/30)  # import time
             #handle events
             #uh something else?
 
     def read_Entity_List(self):
         entity_list = []
         #test entity
-        entity = Board_Element.BoardElement("board", 100, 100, 800, 600, "chess.png")
+        entity = Board_Element.BoardElement(100, 100, 800, 600, "chess.png")
         entity_list.append(entity)
         
         return entity_list

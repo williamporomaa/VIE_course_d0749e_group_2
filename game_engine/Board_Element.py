@@ -1,10 +1,12 @@
-from Game_Element import GameElement
-
-class BoardElement(GameElement):
-    def __init__(self, name, x, y, width, height, image_path, grid=None):
-        super().__init__(name, x, y, width, height, image_path)
+class BoardElement():
+    def __init__(self, x, y, width, height, image_path, tiles=None):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.image_path = image_path
         self.elements = []
-        self.grid = grid
+        self.tiles = tiles
 
     def add_element(self, element):
         self.elements.append(element)
