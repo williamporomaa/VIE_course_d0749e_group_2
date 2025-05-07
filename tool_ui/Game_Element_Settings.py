@@ -1,7 +1,7 @@
 from PySide6.QtGui import QAction, QIcon
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QToolBar, QLineEdit, QHBoxLayout, QComboBox, QMenu
 
-from Graphic_Item import ElementTypes
+from Enums import ElementTypes
 
 
 class ElementView(QWidget):
@@ -118,17 +118,14 @@ class ElementView(QWidget):
             y = float(self.yEdit.text())
             self.element.move(x,y)
         except ValueError:
-            pass
-
-        self.xEdit.setText(f'{self.element.getX()}')
-        self.yEdit.setText(f'{self.element.getY()}')
+            self.actualizePosAndScale()
 
     def onScaleChange(self):
         try:
             scale = float(self.scaleEdit.text())
             self.element.setScale(scale)
         except ValueError:
-            self.scaleEdit.setText(f'{self.element.scale()}')
+            self.actualizePosAndScale()
 
     def onFlagAdd(self, index):
         if not self.flagCombo.currentIndex() == 0:
@@ -149,6 +146,11 @@ class ElementView(QWidget):
         flagWidget.deleteLater()
 
         self.flagCombo.addItem(flag.name)
+
+    def actualizePosAndScale(self):
+        self.xEdit.setText(f'{self.element.getX()}')
+        self.yEdit.setText(f'{self.element.getY()}')
+        self.scaleEdit.setText(f'{self.element.scale()}')
 
 
     def close(self):

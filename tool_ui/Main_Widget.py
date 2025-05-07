@@ -1,5 +1,6 @@
 import sys
 
+from PySide6.QtCore import Signal
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsView, QHBoxLayout, \
     QSizePolicy, QGraphicsItem
 
@@ -14,6 +15,7 @@ class MainWidget(QWidget):
     height = 1600
     scene_width = 400
     scene_height = 400
+    actualizeSignal = Signal()
 
     def __init__(self, dir_path):
         super().__init__()
@@ -53,8 +55,13 @@ class MainWidget(QWidget):
     def addElementView(self, item):
         if not item.name in self.elementOpened:
             view = ElementView(self, item)
+            self.actualizeSignal.connect(view.actualizePosAndScale)
             self.elementView.addWidget(view)
             self.elementOpened.append(item.name)
+
+    def acualizeElementView(self):
+        self.actualizeSignal.emit()
+
         
     def getGameState(self):
         # Return the current game state as a dictionary

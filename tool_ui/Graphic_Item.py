@@ -1,45 +1,8 @@
-from enum import Enum
-
 from PySide6.QtGui import QPixmap, Qt
 from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsItem
 
-class ElementTypes(Enum):
-    Piece = 0
-    Card = 1
-    Deck = 2
-    Dice = 3
-    Tile = 4
-    Menu = 5
-    Button = 6
+from Enums import ElementTypes, PieceFlags
 
-    @staticmethod
-    def flags(type):
-        typesFlags = [PieceFlags, CardFlags, DeckFlags, DiceFlags, TileFlags, MenuFlags, ButtonFlags]
-        return typesFlags[type.value]
-
-class PieceFlags(Enum):
-    IsSnapping = 0
-    IsDraggable = 1
-    IsDestroyable = 2
-    IsStackable = 3
-
-class CardFlags(Enum):
-    pass
-
-class DeckFlags(Enum):
-    pass
-
-class DiceFlags(Enum):
-    pass
-
-class TileFlags(Enum):
-    pass
-
-class MenuFlags(Enum):
-    pass
-
-class ButtonFlags(Enum):
-    pass
 
 class GraphicItem(QGraphicsPixmapItem):
     def __init__(self, image, mainWidget, name, type=ElementTypes.Piece):
@@ -78,10 +41,14 @@ class GraphicItem(QGraphicsPixmapItem):
         if self.isSelected():
             if event.key() == Qt.Key_Plus:
                 #plus
-                self.setScale(self.scale() + 0.1)
+                self.changeScale(self.scale() + 0.1)
             elif event.key() == Qt.Key_Minus:
                 #moins
-                self.setScale(self.scale() - 0.1)
+                self.changeScale(self.scale() - 0.1)
+
+    def changeScale(self, new_scale):
+        self.setScale(new_scale)
+        self.mainWidget.acualizeElementView()
 
     def mousePressEvent(self, event, /):
         list = self.mainWidget.assetList
@@ -110,6 +77,7 @@ class GraphicItem(QGraphicsPixmapItem):
         else:
             self.setX(x)
             self.setY(y)
+        self.mainWidget.acualizeElementView()
 
     #works
     def iterativeSearch(self, max, point):
