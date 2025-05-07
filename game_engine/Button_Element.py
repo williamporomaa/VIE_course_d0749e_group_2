@@ -5,16 +5,24 @@ import sys
 class ButtonElement(GameElement):
     def __init__(self, name, x, y, width, height, image_path, function, text, menu=None):
         super().__init__(name, x, y, width, height, 0, image_path)
-        self.function = function
+        self.function = function    
         self.text = text
         self.menu = menu
 
     def set_action(self, function):
-        self.button_function = function
+        self.function = function
 
     def click(self):
-        if self.action:
-            self.action()
+        if self.function == "start_game":
+            self.start_game()
+        elif self.function == "quit_game":
+            self.quit_game()
+        elif self.function == "change_audio":
+            self.change_audio()
+        elif self.function == "restart_game":
+            self.restart_game()
+        elif self.function == "open_menu":
+            self.open_menu()
 
     def quit_game(self):
         # Quit the game
@@ -37,8 +45,3 @@ class ButtonElement(GameElement):
         if self.menu:
             # Open the menu
             pass
-    def draw(self):
-        pg.draw.rect(screen, 'light gray', self.button, 0, 5)
-        pg.draw.rect(screen, 'dark gray', [self.x, self.y, self.width, self.height], 5, 5)
-        text2 = font.render(self.text, True, 'black')
-        screen.blit(text2, (self.pos[0] + 15, self.pos[1] + 7))

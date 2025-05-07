@@ -30,13 +30,15 @@ class GraphicsHandler():
                 self.screen.blit(image, (entity.x, entity.y))
             else:
                 if entity.type == 5: #entity = menu
-                    for button in entity.buttons:
-                        button.draw()
-                else: 
-                    pg.draw.rect(self.screen, (0, 0, 0), (entity.x, entity.y, entity.width, entity.height))
+                    self.render_menu(entity)
                 
         pg.display.update()
     
     def render_menu(entity):
         for button in entity.buttons:
-            button.draw()
+                pg.draw.rect(screen, 'light gray', self.button, 0, 5)
+                pg.draw.rect(screen, 'dark gray', [self.x, self.y, self.width, self.height])
+                text2 = font.render(button.text, True, 'black')
+                screen.blit(text2, (button.x , button.y))
+                button_rect = pg.Rect(button.x, button.y, button.width, button.height)
+                self.game_handler.entity_rectangles.insert(0, button_rect)
