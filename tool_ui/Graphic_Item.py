@@ -27,9 +27,21 @@ class GraphicItem(QGraphicsPixmapItem):
         new_name = mainWidget.assetList.addItemAndName(name, self)
         self.name = new_name
 
-        self.type = type
+        self.elementType = type
         self.mainWidget = mainWidget
         self.gameFlags = []
+
+    def getX(self):
+        return self.pos().x()
+
+    def getY(self):
+        return self.pos().y()
+
+    def getHeight(self):
+        return self.sceneBoundingRect().height()
+
+    def getWidth(self):
+        return self.sceneBoundingRect().width()
 
     def keyPressEvent(self, event, /):
         if self.isSelected():
@@ -45,22 +57,24 @@ class GraphicItem(QGraphicsPixmapItem):
         list.setCurrentItem(list.findItems(self.name,Qt.MatchFixedString)[0])
     
     def mouseReleaseEvent(self, event):
+        x = self.pos().x()
+        y = self.pos().y()
+        #print("release x: ", x, " releasy y:", y)
+        self.move(x,y)
+        
+        super().mouseReleaseEvent(event)
+
+    def move(self, x, y):
         x_size = self.mainWidget.scene.gridSizeX
         y_size = self.mainWidget.scene.gridSizeY
 
-        x = self.pos().x()
-        y = self.pos().y()
-        print("release x: ", x, " releasy y:", y)
-
-        #binary search in x and then do binary search in y
+        # binary search in x and then do binary search in y
         x = self.iterativeSearch(x_size, x)
         y = self.iterativeSearch(y_size, y)
-        print("post-binary search x: ", x, " post-binary search y: ", y)
+        # print("post-binary search x: ", x, " post-binary search y: ", y)
 
-        self.setX((x+0.5)*self.mainWidget.scene.grid_size)
-        self.setY((y+0.5)*self.mainWidget.scene.grid_size)
-        
-        super().mouseReleaseEvent(event)
+        self.setX((x + 0.5) * self.mainWidget.scene.grid_size)
+        self.setY((y + 0.5) * self.mainWidget.scene.grid_size)
 
     #works
     def iterativeSearch(self, max, point):
@@ -92,4 +106,3 @@ class GraphicItem(QGraphicsPixmapItem):
     def changeName(self, new_name):
         new_name = self.mainWidget.assetList.changeItem(self.name, new_name)
         self.name = new_name
-        return self.name

@@ -31,7 +31,7 @@ class AssetList(QListWidget):
         self.mainWidget.addElementView(self.items[current.text()])
 
     def checkItemName(self, item_name):
-        # making sure that the item name is not already used
+        # making sure that the item nameEdit is not already used
         new_item_name = item_name
         counter = 0
         while (True):
