@@ -7,7 +7,10 @@ import Audio_Handler, Board_Element, Button_Element, Card_Element, Deck_Element,
 
 class GameHandler():
     def __init__(self):
-        self.entity_list =  self.read_Entity_List()
+        #set self.entity_list and self.entity_rectangles
+        self.entity_list = []
+        self.entity_rectangles = []
+        self.read_Entity_List()
         pg.display.init()
         main_surface = pg.display.set_mode((1000, 800))
         self.graphics_handler = GraphicsHandler(self.entity_list, main_surface)
@@ -24,12 +27,12 @@ class GameHandler():
             #uh something else?
 
     def read_Entity_List(self):
-        entity_list = []
         #test entity
         entity = Board_Element.BoardElement(100, 100, 800, 600, "chess.png")
-        entity_list.append(entity)
+        self.entity_list.append(entity)
         
-        return entity_list
+        for entity in reversed(self.entity_list):
+            self.entity_rectangles.append(pg.Rect(entity.x, entity.y, entity.width, entity.height))
                 
 
 GameHandler = GameHandler()

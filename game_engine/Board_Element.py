@@ -1,5 +1,8 @@
-class BoardElement():
+from Game_Element import GameElement
+
+class BoardElement(GameElement):
     def __init__(self, x, y, width, height, image_path, tiles=None):
+        super().__init__("board", x, y, width, height, 7, image_path)
         self.x = x
         self.y = y
         self.width = width
@@ -22,6 +25,7 @@ class BoardElement():
     def get_elements(self):
         # Return a list of elements on the board
         return self.elements
+
     def clear_board(self):  
         # Clear all elements from the board
         self.elements.clear()

@@ -29,6 +29,14 @@ class GraphicsHandler():
                 image = pg.transform.scale(image, (entity.width, entity.height))
                 self.screen.blit(image, (entity.x, entity.y))
             else:
-                pg.draw.rect(self.screen, (0, 0, 0), (entity.x, entity.y, entity.width, entity.height))
+                if entity.type == 5: #entity = menu
+                    for button in entity.buttons:
+                        button.draw()
+                else: 
+                    pg.draw.rect(self.screen, (0, 0, 0), (entity.x, entity.y, entity.width, entity.height))
                 
         pg.display.update()
+    
+    def render_menu(entity):
+        for button in entity.buttons:
+            button.draw()
