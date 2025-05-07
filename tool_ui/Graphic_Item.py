@@ -3,6 +3,19 @@ from enum import Enum
 from PySide6.QtGui import QPixmap, Qt
 from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsItem
 
+class ElementTypes(Enum):
+    Piece = 0
+    Card = 1
+    Deck = 2
+    Dice = 3
+    Tile = 4
+    Menu = 5
+    Button = 6
+
+    @staticmethod
+    def flags(type):
+        typesFlags = [PieceFlags, CardFlags, DeckFlags, DiceFlags, TileFlags, MenuFlags, ButtonFlags]
+        return typesFlags[type.value]
 
 class PieceFlags(Enum):
     IsSnapping = 0
@@ -10,8 +23,26 @@ class PieceFlags(Enum):
     IsDestroyable = 2
     IsStackable = 3
 
+class CardFlags(Enum):
+    pass
+
+class DeckFlags(Enum):
+    pass
+
+class DiceFlags(Enum):
+    pass
+
+class TileFlags(Enum):
+    pass
+
+class MenuFlags(Enum):
+    pass
+
+class ButtonFlags(Enum):
+    pass
+
 class GraphicItem(QGraphicsPixmapItem):
-    def __init__(self, image, mainWidget, name, type='PIECE'):
+    def __init__(self, image, mainWidget, name, type=ElementTypes.Piece):
         super().__init__()
 
         self.setPixmap(QPixmap.fromImage(image))
@@ -65,16 +96,20 @@ class GraphicItem(QGraphicsPixmapItem):
         super().mouseReleaseEvent(event)
 
     def move(self, x, y):
-        x_size = self.mainWidget.scene.gridSizeX
-        y_size = self.mainWidget.scene.gridSizeY
+        if (self.elementType is ElementTypes.Piece) and (PieceFlags.IsSnapping in self.gameFlags):
+            x_size = self.mainWidget.scene.gridSizeX
+            y_size = self.mainWidget.scene.gridSizeY
 
-        # binary search in x and then do binary search in y
-        x = self.iterativeSearch(x_size, x)
-        y = self.iterativeSearch(y_size, y)
-        # print("post-binary search x: ", x, " post-binary search y: ", y)
+            # binary search in x and then do binary search in y
+            x = self.iterativeSearch(x_size, x)
+            y = self.iterativeSearch(y_size, y)
+            # print("post-binary search x: ", x, " post-binary search y: ", y)
 
-        self.setX((x + 0.5) * self.mainWidget.scene.grid_size)
-        self.setY((y + 0.5) * self.mainWidget.scene.grid_size)
+            self.setX((x + 0.5) * self.mainWidget.scene.grid_size)
+            self.setY((y + 0.5) * self.mainWidget.scene.grid_size)
+        else:
+            self.setX(x)
+            self.setY(y)
 
     #works
     def iterativeSearch(self, max, point):
@@ -106,3 +141,7 @@ class GraphicItem(QGraphicsPixmapItem):
     def changeName(self, new_name):
         new_name = self.mainWidget.assetList.changeItem(self.name, new_name)
         self.name = new_name
+
+    def changeType(self, type):
+        self.elementType = type
+        self.gameFlags.clear()
