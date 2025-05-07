@@ -1,9 +1,17 @@
+from enum import Enum
+
 from PySide6.QtGui import QPixmap, Qt
 from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsItem
 
 
+class PieceFlags(Enum):
+    IsSnapping = 0
+    IsDraggable = 1
+    IsDestroyable = 2
+    IsStackable = 3
+
 class GraphicItem(QGraphicsPixmapItem):
-    def __init__(self, image, mainWidget, name):
+    def __init__(self, image, mainWidget, name, type='PIECE'):
         super().__init__()
 
         self.setPixmap(QPixmap.fromImage(image))
@@ -13,13 +21,15 @@ class GraphicItem(QGraphicsPixmapItem):
 
         height = self.sceneBoundingRect().height()
         width = self.sceneBoundingRect().width()
-        self.setOffset(-width/2,-height/2)
+        self.setOffset(-width/2 +0.5, -height/2 +0.5)
 
         mainWidget.scene.addItem(self)
         new_name = mainWidget.assetList.addItemAndName(name, self)
         self.name = new_name
 
+        self.type = type
         self.mainWidget = mainWidget
+        self.gameFlags = []
 
     def keyPressEvent(self, event, /):
         if self.isSelected():
@@ -79,4 +89,7 @@ class GraphicItem(QGraphicsPixmapItem):
         
         return(high+low//2)
 
-
+    def changeName(self, new_name):
+        new_name = self.mainWidget.assetList.changeItem(self.name, new_name)
+        self.name = new_name
+        return self.name

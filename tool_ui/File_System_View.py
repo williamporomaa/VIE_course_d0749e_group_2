@@ -1,7 +1,7 @@
 from PySide6.QtGui import QAction, QIcon, QImage
 from PySide6.QtWidgets import QWidget, QFileSystemModel, QTreeView, QVBoxLayout, QToolBar
 
-from tool_ui.Graphic_Item import GraphicItem
+from Graphic_Item import GraphicItem
 
 
 class FileSystemView(QWidget):

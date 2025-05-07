@@ -6,7 +6,7 @@ from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsView,
 from Game_Elements_List import AssetList
 from Tool_Bar import ToolBar
 from Graphics_Scene import GraphicScene
-from tool_ui.Game_Element_Settings import ElementView
+from Game_Element_Settings import ElementView
 
 
 class MainWidget(QWidget):
@@ -43,7 +43,7 @@ class MainWidget(QWidget):
         self.layoutH = QHBoxLayout()
         self.layoutH.addWidget(self.assetList, stretch=1)
         self.layoutH.addWidget(view, stretch=3)
-        self.layoutH.addLayout(self.elementView)
+        self.layoutH.addLayout(self.elementView, stretch=1)
 
         layoutV = QVBoxLayout()
         layoutV.addWidget(self.toolbar)
