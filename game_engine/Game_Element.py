@@ -1,12 +1,14 @@
 import sys
 
 class GameElement:
-    def __init__(self, name, x, y, width, height, image_path=None):
+    def __init__(self, name, x, y, width, height, element_type, image_path=None):
         self.name = name
         self.x = x
         self.y = y
         self.width = width
         self.height = height
+        self.element_type = element_type #0 = button, 1 = card, 2 = deck, 3 = decorative, 4 = dice, 5 = menu, 6 = piece, 7 = board
+                                         #felt like doing string matching would take to long
         self.image_path = image_path
 
     def get_position(self):

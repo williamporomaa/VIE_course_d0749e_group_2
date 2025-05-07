@@ -15,5 +15,15 @@ class EventHandler:
                 if event.key == pg.K_q:
                     pg.quit()
                     sys.exit()
-
-    
+            if event.type == pg.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    print("mb1 pressed")
+                elif event.button == 3:
+                    print("mb2 pressed")
+                    rect = pg.Rect(event.pos[0], event.pos[1], 1, 1)
+                    index = rect.collidelist(self.game_handler.entity_rectangles)
+                    if index >= 0:
+                        entity = self.game_handler.entity_list[index]
+                        print(entity.element_type)
+                else:
+                    continue

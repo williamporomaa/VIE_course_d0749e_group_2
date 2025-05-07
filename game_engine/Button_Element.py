@@ -4,7 +4,7 @@ import sys
 
 class ButtonElement(GameElement):
     def __init__(self, name, x, y, width, height, image_path, function, text, menu=None):
-        super().__init__(name, x, y, width, height, image_path)
+        super().__init__(name, x, y, width, height, 0, image_path)
         self.function = function
         self.text = text
         self.menu = menu
@@ -37,3 +37,8 @@ class ButtonElement(GameElement):
         if self.menu:
             # Open the menu
             pass
+    def draw(self):
+        pg.draw.rect(screen, 'light gray', self.button, 0, 5)
+        pg.draw.rect(screen, 'dark gray', [self.x, self.y, self.width, self.height], 5, 5)
+        text2 = font.render(self.text, True, 'black')
+        screen.blit(text2, (self.pos[0] + 15, self.pos[1] + 7))

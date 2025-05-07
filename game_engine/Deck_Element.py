@@ -3,7 +3,7 @@ import random
 
 class DeckElement(GameElement):
     def __init__(self, name, x, y, width, height, image_path, card_list=None):
-        super().__init__(name, x, y, width, height, image_path)
+        super().__init__(name, x, y, width, height, 2, image_path)
         self.card_list = card_list
 
     def add_card(self, card):

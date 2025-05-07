@@ -3,7 +3,7 @@ import random
 
 class DiceElement(GameElement):
     def __init__(self, name, x, y, width, height, image_path, sides=6):
-        super().__init__(name, x, y, width, height, image_path)
+        super().__init__(name, x, y, width, height, 4, image_path)
         self.sides = sides
         self.current_value = 1  # Default to the first side
         #might want to add a list of images for each side of the dice
