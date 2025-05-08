@@ -1,5 +1,6 @@
 import pygame as pg
 import sys
+from Popup_Menu import PopupMenu
 
 class EventHandler:
     def __init__(self, game_handler):
@@ -25,14 +26,15 @@ class EventHandler:
                     index = rect.collidelist(self.game_handler.entity_rectangles)
                     if index >= 0:
                         entity = self.game_handler.entity_list[index]
-                        self.entity_right_click_event(entity)
+                        self.entity_right_click_event(entity, event.pos)
                 else:
                     continue
     
-    def entity_right_click_event(self, entity):
+    def entity_right_click_event(self, entity, mouse_pos):
         type = entity.element_type  #0 = button, 1 = card, 2 = deck, 3 = decorative, 4 = dice, 5 = menu, 6 = piece, 7 = board
         if type == 5:
             self.selected_element = -1
         else:
             self.selected_element = entity.element_type
             menu = entity.get_menu()
+            self.graphics_handler.popup = PopupMenu(menu, mouse_pos, 100, 50) 

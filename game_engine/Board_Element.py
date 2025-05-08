@@ -32,5 +32,5 @@ class BoardElement(GameElement):
 
     def get_menu(self):
         menu = ["close"]
-
+        
         return menu

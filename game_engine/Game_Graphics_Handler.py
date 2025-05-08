@@ -16,10 +16,10 @@ class GraphicsHandler():
         main_surface.fill('white')
         self.background = pg.image.load(image_path).convert()
         self.screen = main_surface
-        self.popup_menu = None
+        self.popup = None  # Placeholder for the popup menu
+        pg.font.init()
+        self.font = pg.font.Font('freesansbold.ttf', 24)
 
-    def set_popup_menu(menu):
-        self.popup_menu = menu
 
     def render_Scene(self):
         self.background = pg.transform.scale(self.background, (self.scene_width, self.scene_width))
@@ -31,17 +31,16 @@ class GraphicsHandler():
                 image = pg.image.load(path).convert_alpha()
                 image = pg.transform.scale(image, (entity.width, entity.height))
                 self.screen.blit(image, (entity.x, entity.y))
-            else:
-                if entity.type == 5: #entity = menu
-                    self.render_menu(entity)
+        if self.popup:
+             self.render_menu()
                 
         pg.display.update()
     
-    def render_menu(menu):
-        pg.draw.rect(screen, 'light gray', [menu.x, menu.y, menu.width, menu.height], 0, 5)
-        for button in entity.buttons:
-                pg.draw.rect(screen, 'dark gray', [button.x, button.y, button.width, button.height])
-                text2 = font.render(button.text, True, 'black')
-                screen.blit(text2, (button.x , button.y))
-                button_rect = pg.Rect(button.x, button.y, button.width, button.height)
-                self.game_handler.entity_rectangles.insert(0, button_rect)
+    def render_menu(self,):
+        i = 0
+        for text in self.popup.buttons:
+                pg.draw.rect(self.screen, 'light gray', [self.popup.x, self.popup.y + self.popup.button_height*i, self.popup.button_width, self.popup.button_height], 0, 5)
+                pg.draw.rect(self.screen, 'dark gray', [self.popup.x, self.popup.y + self.popup.button_height*i, self.popup.button_width, self.popup.button_height], 5, 5)
+                text2 = self.font.render(text, True, 'black')
+                self.screen.blit(text2, (self.popup.x + 15, self.popup.y + self.popup.button_height*i + 7))
+                i+=1
