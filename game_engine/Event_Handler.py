@@ -5,6 +5,7 @@ class EventHandler:
     def __init__(self, game_handler):
         self.game_handler = game_handler
         self.selected_element = -1 # -1 means no element is selected 
+        self.graphics_handler = game_handler.graphics_handler
 
     def handle_events(self):
         for event in pg.event.get():

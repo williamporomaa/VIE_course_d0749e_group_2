@@ -3,7 +3,7 @@ from Game_Graphics_Handler import GraphicsHandler
 from Event_Handler import EventHandler
 import time
 import pygame as pg
-import Audio_Handler, Board_Element, Button_Element, Card_Element, Deck_Element, Decorative_Element, Dice_Element,  Game_Menu, Piece_Element
+import Audio_Handler, Board_Element, Game_Button_Element, Card_Element, Deck_Element, Decorative_Element, Dice_Element,  Game_Menu, Piece_Element
 
 class GameHandler():
     def __init__(self):

@@ -16,7 +16,10 @@ class GraphicsHandler():
         main_surface.fill('white')
         self.background = pg.image.load(image_path).convert()
         self.screen = main_surface
+        self.popup_menu = None
 
+    def set_popup_menu(menu):
+        self.popup_menu = menu
 
     def render_Scene(self):
         self.background = pg.transform.scale(self.background, (self.scene_width, self.scene_width))
@@ -34,10 +37,10 @@ class GraphicsHandler():
                 
         pg.display.update()
     
-    def render_menu(entity):
+    def render_menu(menu):
+        pg.draw.rect(screen, 'light gray', [menu.x, menu.y, menu.width, menu.height], 0, 5)
         for button in entity.buttons:
-                pg.draw.rect(screen, 'light gray', self.button, 0, 5)
-                pg.draw.rect(screen, 'dark gray', [self.x, self.y, self.width, self.height])
+                pg.draw.rect(screen, 'dark gray', [button.x, button.y, button.width, button.height])
                 text2 = font.render(button.text, True, 'black')
                 screen.blit(text2, (button.x , button.y))
                 button_rect = pg.Rect(button.x, button.y, button.width, button.height)

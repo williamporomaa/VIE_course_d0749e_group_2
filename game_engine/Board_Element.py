@@ -29,3 +29,8 @@ class BoardElement(GameElement):
     def clear_board(self):  
         # Clear all elements from the board
         self.elements.clear()
+
+    def get_menu(self):
+        menu = ["close"]
+
+        return menu

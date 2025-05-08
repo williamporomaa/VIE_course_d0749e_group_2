@@ -2,7 +2,7 @@ from Game_Element import GameElement
 import pygame as pg
 import sys
 
-class ButtonElement(GameElement):
+class GameButtonElement(GameElement):
     def __init__(self, name, x, y, width, height, image_path, function, text, menu=None):
         super().__init__(name, x, y, width, height, 0, image_path)
         self.function = function    
