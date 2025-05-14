@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+
+
+[project]
+name = "board-game-engine"
+version = "1.0"
+
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tool_ui*", "game_engine*"]
