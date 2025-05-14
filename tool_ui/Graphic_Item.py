@@ -1,14 +1,14 @@
-from PySide6.QtGui import QPixmap, Qt
+from PySide6.QtGui import QPixmap, Qt, QImage
 from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsItem
 
 from Enums import ElementTypes, PieceFlags
 
 
 class GraphicItem(QGraphicsPixmapItem):
-    def __init__(self, image, mainWidget, name, type=ElementTypes.Piece):
+    def __init__(self, path, mainWidget, name, type=ElementTypes.Piece):
         super().__init__()
 
-        self.setPixmap(QPixmap.fromImage(image))
+        self.setPixmap(QPixmap.fromImage(QImage(path)))
         self.setFlag(QGraphicsItem.ItemIsMovable, True)
         self.setFlag(QGraphicsItem.ItemIsSelectable, True)
         self.setFlag(QGraphicsItem.ItemIsFocusable, True)
@@ -21,6 +21,7 @@ class GraphicItem(QGraphicsPixmapItem):
         new_name = mainWidget.assetList.addItemAndName(name, self)
         self.name = new_name
 
+        self.imagePath = path
         self.elementType = type
         self.mainWidget = mainWidget
         self.gameFlags = []
@@ -36,6 +37,12 @@ class GraphicItem(QGraphicsPixmapItem):
 
     def getWidth(self):
         return self.sceneBoundingRect().width()
+
+    def getFlagsValues(self):
+        res = []
+        for flag in self.gameFlags:
+            res.append(flag.value)
+        return res
 
     def keyPressEvent(self, event, /):
         if self.isSelected():

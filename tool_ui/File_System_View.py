@@ -41,8 +41,7 @@ class FileSystemView(QWidget):
 
     def Add(self):
         path, name = self.getSelectedPath()
-        image = QImage(path)
-        GraphicItem(image, self.mainWidget, name)
+        GraphicItem(path, self.mainWidget, name)
         self.close()
 
     def Cancel(self):

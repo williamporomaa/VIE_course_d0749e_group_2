@@ -21,28 +21,15 @@ class ToolBar(QToolBar):
         button_add.triggered.connect(self.buttonAddClicked)
         self.addAction(button_add)
 
-        grid_button_add = GridButton(mainWidget)
-        self.addWidget(grid_button_add)
+        self.grid_button_add = GridButton(mainWidget)
+        self.addWidget(self.grid_button_add)
         
         save_load_button = SaveLoadButton(mainWidget)
-        save_load_button.saveGameSignal.connect(self.save_game)
-        save_load_button.loadGameSignal.connect(self.load_game)
         self.addWidget(save_load_button)
 
         button_play = QAction(QIcon("./toolbarIcons/disc.png"), "play", self)
         button_play.triggered.connect(self.buttonPlayClicked)
         self.addAction(button_play)
-
-
-    def save_game(self):
-        # May need additional logic before saving, who knows
-        print("Preparing to save the game...")
-        self.mainWidget.saveLoadManager.saveGame()
-
-    def load_game(self):
-        # May need additional logic before loading, who knows
-        print("Preparing to load the game...")
-        self.mainWidget.saveLoadManager.loadGame()
 
     def buttonAddClicked(self):
         self.fileSystem.show()

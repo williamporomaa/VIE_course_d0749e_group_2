@@ -62,37 +62,6 @@ class MainWidget(QWidget):
     def acualizeElementView(self):
         self.actualizeSignal.emit()
 
-        
-    def getGameState(self):
-        # Return the current game state as a dictionary
-        return {
-            "pieces": self.getPiecesData(),
-        }
-        
-    def setGameState(self, state):
-        # Update the game state from the given dictionary
-        self.setPiecesData(state["pieces"])
-
-    def getPiecesData(self):
-        pieces_data = []
-        for item in self.scene.items():
-            if isinstance(item, QGraphicsItem):
-                piece_data = {
-                    "x": item.x(),
-                    "y": item.y(),
-                    "type": item.data(0)
-                }
-                pieces_data.append(piece_data)
-        return pieces_data
-
-    def setPiecesData(self, pieces_data):
-        self.scene.clear()
-        for piece_data in pieces_data:
-            piece = QGraphicsItem()
-            piece.setX(piece_data["x"])
-            piece.setY(piece_data["y"])
-            piece.setData(0, piece_data["type"])
-            self.scene.addItem(piece)
     
 if __name__ == '__main__':
     app = QApplication(sys.argv)

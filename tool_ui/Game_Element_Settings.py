@@ -73,7 +73,7 @@ class ElementView(QWidget):
         flagsLayout.addWidget(QLabel('flags:'))
 
         self.currentFlagsLayout = QVBoxLayout()
-        for flag,i in self.element.gameFlags:
+        for flag in self.element.gameFlags:
             self.addFlag(flag)
         flagsLayout.addLayout(self.currentFlagsLayout)
 
