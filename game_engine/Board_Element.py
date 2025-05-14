@@ -31,6 +31,10 @@ class BoardElement(GameElement):
         self.elements.clear()
 
     def get_menu(self):
-        menu = ["close"]
+        menu = ["close", "test1", "test2", "test3"]
         
         return menu
+
+    def do_function(self, index):
+        #temporary testing function
+        print("performing function number: ", index)
