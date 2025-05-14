@@ -15,7 +15,7 @@ class ElementView(QWidget):
 
         # toolbar
         toolbar = QToolBar()
-        button_close = QAction(QIcon("../toolbarIcons/cross-button.png"), "Close", self)
+        button_close = QAction(QIcon("./toolbarIcons/cross-button.png"), "Close", self)
         button_close.triggered.connect(self.close)
         toolbar.addAction(button_close)
         layout.addWidget(toolbar)
@@ -93,7 +93,7 @@ class ElementView(QWidget):
         flagLabel = QLabel(flag.name)
         flagLayout.addWidget(flagLabel)
 
-        flagButton = QAction(QIcon("../toolbarIcons/cross-button.png"), "remove flag", self)
+        flagButton = QAction(QIcon("./toolbarIcons/cross-button.png"), "remove flag", self)
         flagButton.triggered.connect(self.onFlagRemove)
         flagMenu = QMenu()
         flagMenu.addAction(flagButton)

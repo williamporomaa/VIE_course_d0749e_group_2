@@ -13,10 +13,10 @@ class FileSystemView(QWidget):
 
         # toolbar
         self.toolbar = QToolBar()
-        button_add = QAction(QIcon("../toolbarIcons/plus-button.png"), "Add", self)
+        button_add = QAction(QIcon("./toolbarIcons/plus-button.png"), "Add", self)
         button_add.triggered.connect(self.Add)
         self.toolbar.addAction(button_add)
-        button_cancel = QAction(QIcon("../toolbarIcons/arrow-180.png"), "Cancel", self)
+        button_cancel = QAction(QIcon("./toolbarIcons/arrow-180.png"), "Cancel", self)
         button_cancel.triggered.connect(self.Cancel)
         self.toolbar.addAction(button_cancel)
 
