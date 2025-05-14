@@ -22,11 +22,14 @@ class PieceFlags(Enum):
     IsStackable = 3
 
 class CardFlags(Enum):
-    pass
+    IsFlippable = 0
 
 class DeckFlags(Enum):
-    pass
+    CanAddCards = 0
+    CanRemoveCards = 1
+    CanShuffle = 2
 
+# not defined flags but enums created for expandability
 class DiceFlags(Enum):
     pass
 
