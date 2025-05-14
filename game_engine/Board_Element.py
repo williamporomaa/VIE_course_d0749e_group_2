@@ -1,4 +1,4 @@
-from Game_Element import GameElement
+from .Game_Element import GameElement
 
 class BoardElement(GameElement):
     def __init__(self, x, y, width, height, image_path, tiles=None):

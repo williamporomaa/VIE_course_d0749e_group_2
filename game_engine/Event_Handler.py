@@ -1,6 +1,6 @@
 import pygame as pg
 import sys
-from Popup_Menu import PopupMenu
+from .Popup_Menu import PopupMenu
 
 class EventHandler:
     def __init__(self, game_handler, entity_rectangles):

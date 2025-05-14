@@ -1,4 +1,4 @@
-from Game_Element import GameElement
+from .Game_Element import GameElement
 class CardElement(GameElement):
     def __init__(self, name, x, y, width, height, face1_path, face2_path=None, card_value=None):
         super().__init__(name, x, y, width, height, 1, face1_path)

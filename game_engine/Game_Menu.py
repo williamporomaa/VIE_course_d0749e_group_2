@@ -1,4 +1,4 @@
-from Game_Element import GameElement
+from .Game_Element import GameElement
 
 class GameMenu(GameElement):
     def __init__(self, name, x, y, width, height, text, image_path = None,  buttons=None):

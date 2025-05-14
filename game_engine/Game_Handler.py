@@ -1,9 +1,9 @@
 import sys
-from Game_Graphics_Handler import GraphicsHandler
-from Event_Handler import EventHandler
+from .Game_Graphics_Handler import GraphicsHandler
+from .Event_Handler import EventHandler
 import time
 import pygame as pg
-import Audio_Handler, Board_Element, Game_Button_Element, Card_Element, Deck_Element, Decorative_Element, Dice_Element,  Game_Menu, Piece_Element
+from . import Audio_Handler, Board_Element, Game_Button_Element, Card_Element, Deck_Element, Decorative_Element, Dice_Element,  Game_Menu, Piece_Element
 
 class GameHandler():
     def __init__(self):
@@ -37,5 +37,5 @@ class GameHandler():
             entity_rectangles.append(pg.Rect(entity.x, entity.y, entity.width, entity.height))
         return entity_rectangles    
 
-GameHandler = GameHandler()
-GameHandler.game_Loop()
+#GameHandler = GameHandler()
+#GameHandler.game_Loop()
