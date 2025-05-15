@@ -39,7 +39,9 @@ class EventHandler:
                         self.graphics_handler.popup = None
                     
                 elif event.button == 3:
+                    self.mouse_listener = None
                     entity = None
+                    self.selected_entity = None
                     for entity in reversed(self.entity_list):
                         if entity.rectangle.collidepoint(event.pos):
                             entity = entity                     
@@ -57,7 +59,7 @@ class EventHandler:
     def entity_right_click_event(self, entity, mouse_pos):
         type = entity.element_type  #0 = button, 1 = card, 2 = deck, 3 = decorative, 4 = dice, 5 = menu, 6 = piece, 7 = board
         if type == 5:
-            self.selected_entity = None
+            pass
         else:
             self.selected_entity = entity
             menu = entity.get_menu()

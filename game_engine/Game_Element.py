@@ -17,8 +17,9 @@ class GameElement:
         return (self.x, self.y)
 
     def set_position(self, pos):
-        self.x = pos[0]
-        self.y = pos[1]
+        #todo: place the object so that its center ends up at the mouse position
+        self.x = pos[0]-self.width//2
+        self.y = pos[1]-self.height//2
         self.rectangle = pg.Rect(self.x, self.y, self.width, self.height)
 
     def get_size(self):

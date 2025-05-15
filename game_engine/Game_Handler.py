@@ -28,9 +28,13 @@ class GameHandler():
         entity = Board_Element.BoardElement(100, 100, 800, 600, "chess.png")
         entity_list.append(entity)
         print(entity.image_path)
-        entity = Piece_Element.PieceElement("black_king", 200, 200, 50, 50, "black_king.png")
+        entity = Piece_Element.PieceElement("white_king", 420, 590, 70, 70, "white_king.png")
         entity_list.append(entity)
+        entity = Piece_Element.PieceElement("black_king", 505, 140, 70, 70, "black_king.png")
+        entity_list.append(entity)
+
         print(entity.image_path)
+        
         return entity_list
 
 GameHandler = GameHandler()
