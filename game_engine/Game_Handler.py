@@ -1,4 +1,5 @@
 import sys
+import json
 from game_engine.Game_Graphics_Handler import GraphicsHandler
 from game_engine.Event_Handler import EventHandler
 import time
@@ -23,19 +24,86 @@ class GameHandler():
             #uh something else?
 
     def read_Entity_List(self):
-        #test entity
-        entity_list = []
-        entity = Board_Element.BoardElement(100, 100, 800, 600, "chess.png")
-        entity_list.append(entity)
-        print(entity.image_path)
-        entity = Piece_Element.PieceElement("white_king", 420, 590, 70, 70, "white_king.png")
-        entity_list.append(entity)
-        entity = Piece_Element.PieceElement("black_king", 505, 140, 70, 70, "black_king.png")
-        entity_list.append(entity)
+        try:
+            # Prompt the user to enter the path to the JSON file
+            file_path = input("Enter the path to the game state JSON file: ")
+            with open(file_path, 'r') as file:
+                game_state = json.load(file)
+                
+            entity_list = []
+            
+            # Read board data
+            board_data = game_state.get("board", {})
+            if board_data:
+                board = Board_Element.BoardElement(
+                    board_data["x"],
+                    board_data["y"],
+                    board_data["width"],
+                    board_data["height"],
+                    board_data["image_path"],
+                    board_data["tiles"]
+                )
+                entity_list.append(board)
+            
+            # Read items data
+            items_data = game_state.get("items", [])
+            for item_data in items_data:
+                item_type = item_data["type"]
+                if item_type == "piece":
+                    entity = Piece_Element.PieceElement(
+                        item_data["name"],
+                        item_data["x"],
+                        item_data["y"],
+                        item_data["width"],
+                        item_data["height"],
+                        item_data["image_path"],
+                        item_data["moveable"],
+                        item_data["allowed_movement"]
+                    )
+                elif item_type == "deck":
+                    entity = Deck_Element.DeckElement(
+                        item_data["name"],
+                        item_data["x"],
+                        item_data["y"],
+                        item_data["width"],
+                        item_data["height"],
+                        item_data["image_path"],
+                        item_data["card_list"]
+                    )
+                elif item_type == "card":
+                    entity = Card_Element.CardElement(
+                        item_data["name"],
+                        item_data["x"],
+                        item_data["y"],
+                        item_data["width"],
+                        item_data["height"],
+                        item_data["face1_path"],
+                        item_data["face2_path"],
+                        item_data["card_value"]
+                    )
+                elif item_type == "dice":
+                    entity = Dice_Element.DiceElement(
+                        item_data["name"],
+                        item_data["x"],
+                        item_data["y"],
+                        item_data["width"],
+                        item_data["height"],
+                        item_data["image_path"]
+                    )
+                else:
+                    # Skip unknown types
+                    continue
+                
+                # Add flags to the entity
+                for flag in item_data.get("flags", []):
+                    entity.add_flag(flag["value"])
+                
+                    entity_list.append(entity)
 
-        print(entity.image_path)
-        
-        return entity_list
+            return entity_list
+        except Exception as e:
+            print(f"Error reading entity list: {e}")
+            return []
 
 GameHandler = GameHandler()
 GameHandler.game_Loop()

@@ -1,4 +1,7 @@
 from game_engine.Game_Element import GameElement
+from game_engine.Audio_Handler import AudioHandler
+from game_engine.Game_Handler import GameHandler
+from game_engine.Game_Menu import GameMenu
 import pygame as pg
 import sys
 
@@ -35,7 +38,25 @@ class GameButtonElement(GameElement):
 
     def change_audio(self):
         # Change the audio settings
-        pass
+        # Initialize the AudioHandler
+        audio_handler = AudioHandler(audio_paths=["sound1.wav", "sound2.wav", "sound3.wav"])
+        audio_handler.load_sounds()
+        
+        # Example: Play a sound
+        print("Playing sound1.wav...")
+        audio_handler.play_sound("sound1.wav")
+        
+        # Example: Adjust volume
+        print("Setting volume for sound1.wav to 50%...")
+        audio_handler.set_volume("sound1.wav", 0.5)
+        
+        # Example: Stop the sound
+        print("Stopping sound1.wav...")
+        audio_handler.stop_sound("sound1.wav")
+        
+        # Example: Stop all sounds
+        print("Stopping all sounds...")
+        audio_handler.stop_all_sounds()
 
     def restart_game(self):
         # Restart the game
