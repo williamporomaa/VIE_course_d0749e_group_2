@@ -1,4 +1,5 @@
 import sys
+import pygame as pg
 
 class GameElement:
     def __init__(self, name, x, y, width, height, element_type, image_path=None):
@@ -10,13 +11,15 @@ class GameElement:
         self.element_type = element_type #0 = button, 1 = card, 2 = deck, 3 = decorative, 4 = dice, 5 = menu, 6 = piece, 7 = board
                                          #felt like doing string matching would take to long
         self.image_path = image_path
+        self.rectangle = pg.Rect(x, y, width, height)
 
     def get_position(self):
         return (self.x, self.y)
 
-    def set_position(self, x, y):
-        self.x = x
-        self.y = y
+    def set_position(self, pos):
+        self.x = pos[0]
+        self.y = pos[1]
+        self.rectangle = pg.Rect(self.x, self.y, self.width, self.height)
 
     def get_size(self):
         return (self.width, self.height)

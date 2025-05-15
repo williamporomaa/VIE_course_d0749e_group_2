@@ -3,12 +3,13 @@ import sys
 from game_engine.Popup_Menu import PopupMenu
 
 class EventHandler:
-    def __init__(self, game_handler, entity_rectangles):
+    def __init__(self, game_handler, entity_list):
         self.game_handler = game_handler
         self.selected_entity = None # -1 means no element is selected 
         self.graphics_handler = game_handler.graphics_handler
-        self.entity_rectangles = entity_rectangles
+        self.entity_list = entity_list
         self.popup = None
+        self.mouse_listener = None
 
     def handle_events(self):
         for event in pg.event.get():
@@ -22,24 +23,33 @@ class EventHandler:
             if event.type == pg.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     #self.graphics_handler.popup = None
-                    if self.popup:
+
+                    #assume move, this is not pretty but it works
+                    if self.mouse_listener:
+                        self.selected_entity.do_function(0, event.pos)
+                        self.mouse_listener = None
+                    elif self.popup:
                         if self.popup.rectangle.collidepoint(event.pos):
                             #check which menu is clicked by calculating the index
                             index = (event.pos[1]-self.popup.y)//self.popup.button_height
-                            self.selected_entity.do_function(index)
-                        else:
-                            self.popup = None
-                            self.graphics_handler.popup = None
-                elif event.button == 3:
-                    rect = pg.Rect(event.pos[0], event.pos[1], 1, 1)
-                    index = rect.collidelist(self.entity_rectangles)
+                            #strange fix that could work, basically entity sends back itself if it needs user input
+                            self.mouse_listener = self.selected_entity.do_function(index)
+                        #close popup no matter if the button was clicked or left click was outside
+                        self.popup = None
+                        self.graphics_handler.popup = None
                     
+                elif event.button == 3:
+                    entity = None
+                    for entity in reversed(self.entity_list):
+                        if entity.rectangle.collidepoint(event.pos):
+                            entity = entity                     
+                            break
+
                     #Check if a popup exists and if so just remove it
                     if self.popup:
                         self.popup = None
                         self.graphics_handler.popup = None
-                    elif index >= 0:
-                        entity = self.game_handler.entity_list[index]
+                    elif entity:
                         self.entity_right_click_event(entity, event.pos)
                 else:
                     continue

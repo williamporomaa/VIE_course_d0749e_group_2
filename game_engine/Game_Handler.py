@@ -7,15 +7,12 @@ from game_engine import Audio_Handler, Board_Element, Game_Button_Element, Card_
 
 class GameHandler():
     def __init__(self):
-        #set self.entity_list and self.entity_rectangles
-        self.entity_list = []
+        self.entity_list = self.read_Entity_List()
         pg.display.init()
         main_surface = pg.display.set_mode((1000, 800))
         self.graphics_handler = GraphicsHandler(self.entity_list, main_surface)
-        entity_rectangles = self.read_Entity_List()
-        self.event_handler = EventHandler(self, entity_rectangles)
-        pass
-
+        self.event_handler = EventHandler(self, self.entity_list)
+        print(self.entity_list)
     #quit logic is a bit funky rn, working on a fix but its not prioritised
     def game_Loop(self):
         while True:
@@ -27,15 +24,14 @@ class GameHandler():
 
     def read_Entity_List(self):
         #test entity
+        entity_list = []
         entity = Board_Element.BoardElement(100, 100, 800, 600, "chess.png")
-        self.entity_list.append(entity)
-        
-        #weird way to do it but i need it to work asap
-        #Basically it returns a reversed representation of the entity list as pygame rectangles which is used for collision detection
-        entity_rectangles = []
-        for entity in reversed(self.entity_list):
-            entity_rectangles.append(pg.Rect(entity.x, entity.y, entity.width, entity.height))
-        return entity_rectangles    
+        entity_list.append(entity)
+        print(entity.image_path)
+        entity = Piece_Element.PieceElement("black_king", 200, 200, 50, 50, "black_king.png")
+        entity_list.append(entity)
+        print(entity.image_path)
+        return entity_list
 
-#GameHandler = GameHandler()
-#GameHandler.game_Loop()
+GameHandler = GameHandler()
+GameHandler.game_Loop()
