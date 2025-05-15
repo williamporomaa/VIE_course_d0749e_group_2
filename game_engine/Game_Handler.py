@@ -1,9 +1,9 @@
 import sys
-from .Game_Graphics_Handler import GraphicsHandler
-from .Event_Handler import EventHandler
+from game_engine.Game_Graphics_Handler import GraphicsHandler
+from game_engine.Event_Handler import EventHandler
 import time
 import pygame as pg
-from . import Audio_Handler, Board_Element, Game_Button_Element, Card_Element, Deck_Element, Decorative_Element, Dice_Element,  Game_Menu, Piece_Element
+from game_engine import Audio_Handler, Board_Element, Game_Button_Element, Card_Element, Deck_Element, Decorative_Element, Dice_Element,  Game_Menu, Piece_Element
 
 class GameHandler():
     def __init__(self):

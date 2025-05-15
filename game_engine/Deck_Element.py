@@ -1,4 +1,4 @@
-from .Game_Element import GameElement
+from game_engine.Game_Element import GameElement
 import random
 
 class DeckElement(GameElement):
