@@ -76,11 +76,6 @@ class GridButton(QComboBox):
         print(self.mainWidget.scene.grid_size)
 
     def generateFromTiles(self, tiles):
-        ##clear current grid:
-        for item in self.currentGrid:
-            self.mainWidget.scene.removeItem(item)
-        self.currentGrid.clear()
-
         for tile in tiles:
             rect = self.mainWidget.scene.addRect(tile["x"]-tile["width"]/2, tile["y"]-tile["height"]/2,
                                                  tile["width"], tile["height"])

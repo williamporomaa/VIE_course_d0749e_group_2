@@ -65,8 +65,8 @@ class SaveLoadButton(QComboBox):
         # Update the game state from the given dictionary
         self.mainWidget.scene.clear()
         self.mainWidget.assetList.clear()
-        self.setItemsData(state["items"])
         self.setBoardData(state["board"])
+        self.setItemsData(state["items"])
 
     def getItemsData(self):
         items_data = []

@@ -1,3 +1,5 @@
+import os.path
+
 from PySide6.QtGui import QAction, QIcon, QImage
 from PySide6.QtWidgets import QWidget, QFileSystemModel, QTreeView, QVBoxLayout, QToolBar
 
@@ -28,6 +30,7 @@ class FileSystemView(QWidget):
         self.tree.setRootIndex(model.index(dir_path))
         self.tree.setColumnWidth(0, 250)
         self.tree.setAlternatingRowColors(True)
+        self.root_path = model.rootDirectory().absolutePath()
 
         layout = QVBoxLayout()
         layout.addWidget(self.tree)
@@ -41,7 +44,8 @@ class FileSystemView(QWidget):
 
     def Add(self):
         path, name = self.getSelectedPath()
-        GraphicItem(path, self.mainWidget, name)
+        relative_path = os.path.relpath(path, os.path.commonprefix([path,self.root_path]))
+        GraphicItem(relative_path, self.mainWidget, name)
         self.close()
 
     def Cancel(self):
