@@ -6,6 +6,16 @@ import time
 import pygame as pg
 from game_engine import Audio_Handler, Board_Element, Game_Button_Element, Card_Element, Deck_Element, Decorative_Element, Dice_Element,  Game_Menu, Piece_Element
 
+ELEMENT_TYPE_MAP = {
+    "button": 0,
+    "card": 1,
+    "deck": 2,
+    "decorative": 3,
+    "dice": 4,
+    "menu": 5,
+    "piece": 6,
+    "board": 7
+}
 class GameHandler():
     def __init__(self):
         self.entity_list = self.read_Entity_List()
@@ -41,15 +51,21 @@ class GameHandler():
                     board_data["width"],
                     board_data["height"],
                     board_data["image_path"],
-                    board_data["tiles"]
+                    board_data["tiles", []],
+                    element_type=ELEMENT_TYPE_MAP["board"]
                 )
                 entity_list.append(board)
             
             # Read items data
             items_data = game_state.get("items", [])
             for item_data in items_data:
-                item_type = item_data["type"]
-                if item_type == "piece":
+                item_type_str = item_data["type"]
+                element_type = ELEMENT_TYPE_MAP.get(item_type_str, None)
+                if element_type is None:
+                    print(f"Unknown element type: {item_type_str}")
+                    continue
+                
+                if element_type == 6:  # piece
                     entity = Piece_Element.PieceElement(
                         item_data["name"],
                         item_data["x"],
@@ -60,7 +76,7 @@ class GameHandler():
                         item_data["moveable"],
                         item_data["allowed_movement"]
                     )
-                elif item_type == "deck":
+                elif element_type == 2:  # deck
                     entity = Deck_Element.DeckElement(
                         item_data["name"],
                         item_data["x"],
@@ -70,7 +86,7 @@ class GameHandler():
                         item_data["image_path"],
                         item_data["card_list"]
                     )
-                elif item_type == "card":
+                elif element_type == 1:  # card
                     entity = Card_Element.CardElement(
                         item_data["name"],
                         item_data["x"],
@@ -81,7 +97,7 @@ class GameHandler():
                         item_data["face2_path"],
                         item_data["card_value"]
                     )
-                elif item_type == "dice":
+                elif element_type == 4:  # dice
                     entity = Dice_Element.DiceElement(
                         item_data["name"],
                         item_data["x"],

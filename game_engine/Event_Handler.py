@@ -34,7 +34,11 @@ class EventHandler:
                             #check which menu is clicked by calculating the index
                             index = (event.pos[1]-self.popup.y)//self.popup.button_height
                             #strange fix that could work, basically entity sends back itself if it needs user input
-                            self.mouse_listener = self.right_clicked.do_function(index)
+                            self.mouse_listener = self.selected_entity.do_function(index)
+                            if self.mouse_listener == "remove":
+                                if self.selected_entity in self.entity_list:
+                                    self.entity_list.remove(self.selected_entity)
+                                self.selected_entity = None
                         #close popup no matter if the button was clicked or left click was outside
                         self.popup = None
                         self.graphics_handler.popup = None
