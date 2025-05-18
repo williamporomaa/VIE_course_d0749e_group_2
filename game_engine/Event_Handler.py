@@ -5,7 +5,7 @@ from game_engine.Popup_Menu import PopupMenu
 class EventHandler:
     def __init__(self, game_handler, entity_list):
         self.game_handler = game_handler
-        self.right_clicked = None # -1 means no element is selected 
+        self.right_clicked = None 
         self.left_clicked = None
         self.graphics_handler = game_handler.graphics_handler
         self.entity_list = entity_list
@@ -28,20 +28,20 @@ class EventHandler:
                     if self.mouse_listener:
                         self.mouse_listener.do_function(0, event.pos)
                         self.mouse_listener = None
-
+                    #logic for clicking popup buttons
                     elif self.popup:
                         if self.popup.rectangle.collidepoint(event.pos):
                             #check which menu is clicked by calculating the index
                             index = (event.pos[1]-self.popup.y)//self.popup.button_height
                             #strange fix that could work, basically entity sends back itself if it needs user input
-                            self.mouse_listener = self.selected_entity.do_function(index)
-                            if self.mouse_listener == "remove":
-                                if self.selected_entity in self.entity_list:
-                                    self.entity_list.remove(self.selected_entity)
-                                self.selected_entity = None
+                            self.mouse_listener = self.right_clicked.do_function(index)
+                            if self.right_clicked.keep_alive == False:
+                                self.entity_list.remove(self.right_clicked)
+                            
                         #close popup no matter if the button was clicked or left click was outside
                         self.popup = None
                         self.graphics_handler.popup = None
+                        self.right_clicked = None
                     else:
                         for entity in reversed(self.entity_list):
                             if entity.rectangle.collidepoint(event.pos):
@@ -56,7 +56,7 @@ class EventHandler:
                         if entity.rectangle.collidepoint(event.pos):
                             entity = entity                     
                             break
-
+                    
                     #Check if a popup exists and if so just remove it
                     if self.popup:
                         self.popup = None

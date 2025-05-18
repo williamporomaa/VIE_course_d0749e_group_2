@@ -12,8 +12,9 @@ class GraphicsHandler():
         self.entities_to_render = entities_to_render        
         self.scene_width = main_surface.get_width()
         self.scene_height = main_surface.get_height()
-        self.folder_path = r"chessGame\images"
+        self.folder_path = r"chessGame/images"
         image_path = os.path.join(self.folder_path, "background.jpg")
+        print(image_path)
         main_surface.fill('white')
         self.background = pg.image.load(image_path).convert()
         self.screen = main_surface
@@ -28,7 +29,7 @@ class GraphicsHandler():
 
         for entity in self.entities_to_render:
             if entity.image_path:
-                path = os.path.join(self.folder_path, entity.image_path)
+                path = os.path.join(entity.image_path)
                 image = pg.image.load(path).convert_alpha()
                 image = pg.transform.scale(image, (entity.width, entity.height))
                 self.screen.blit(image, (entity.x, entity.y))

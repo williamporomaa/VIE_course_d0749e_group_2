@@ -42,7 +42,7 @@ class GameHandler():
                     board_data["width"],
                     board_data["height"],
                     board_data["image_path"],
-                    board_data["tiles", []],
+                    board_data["tiles"],
                 )
                 entity_list.append(board)
             
