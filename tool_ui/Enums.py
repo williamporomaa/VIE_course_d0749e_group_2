@@ -2,14 +2,15 @@ from enum import Enum
 
 
 class ElementTypes(Enum):
-    Piece = 0
+    Button = 0
     Card = 1
     Deck = 2
-    Dice = 3
-    Tile = 4
+    Decorative = 3
+    Dice = 4
     Menu = 5
-    Button = 6
+    Piece = 6
     Board = 7
+    Tile = 8
 
     @staticmethod
     def flags(type):

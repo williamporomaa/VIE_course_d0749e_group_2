@@ -8,8 +8,11 @@ class GameElement:
         self.y = y
         self.width = width
         self.height = height
-        self.element_type = element_type #0 = button, 1 = card, 2 = deck, 3 = decorative, 4 = dice, 5 = menu, 6 = piece, 7 = board
-                                         #felt like doing string matching would take to long
+        self.element_type = element_type 
+#0 = button, 1 = card, 2 = deck, 3 = decorative, 
+# 4 = dice, 5 = menu, 6 = piece, 7 = board
+# 8 = tile
+#felt like doing string matching would take to long
         self.image_path = image_path
         self.rectangle = pg.Rect(x, y, width, height)
 

@@ -2,7 +2,7 @@
     "items": [
         {
             "name": "white_pawn_2",
-            "type": 0,
+            "type": 6,
             "x": 75.0,
             "y": 325.0,
             "height": 54.9,
@@ -16,7 +16,7 @@
         },
         {
             "name": "white_pawn_1",
-            "type": 0,
+            "type": 6,
             "x": 25.0,
             "y": 325.0,
             "height": 54.9,
@@ -30,7 +30,7 @@
         },
         {
             "name": "white_pawn_3",
-            "type": 0,
+            "type": 6,
             "x": 125.0,
             "y": 325.0,
             "height": 54.9,
@@ -44,7 +44,7 @@
         },
         {
             "name": "white_pawn_4",
-            "type": 0,
+            "type": 6,
             "x": 175.0,
             "y": 325.0,
             "height": 54.9,
@@ -58,7 +58,7 @@
         },
         {
             "name": "white_pawn_5",
-            "type": 0,
+            "type": 6,
             "x": 225.0,
             "y": 325.0,
             "height": 54.9,
@@ -72,7 +72,7 @@
         },
         {
             "name": "white_pawn_6",
-            "type": 0,
+            "type": 6,
             "x": 275.0,
             "y": 325.0,
             "height": 54.9,
@@ -86,7 +86,7 @@
         },
         {
             "name": "white_pawn_7",
-            "type": 0,
+            "type": 6,
             "x": 325.0,
             "y": 325.0,
             "height": 54.9,
@@ -100,7 +100,7 @@
         },
         {
             "name": "white_pawn_8",
-            "type": 0,
+            "type": 6,
             "x": 375.0,
             "y": 325.0,
             "height": 54.9,
@@ -114,7 +114,7 @@
         },
         {
             "name": "white_rook_1",
-            "type": 0,
+            "type": 6,
             "x": 25.0,
             "y": 375.0,
             "height": 54.9,
@@ -128,7 +128,7 @@
         },
         {
             "name": "white_rook_2",
-            "type": 0,
+            "type": 6,
             "x": 375.0,
             "y": 375.0,
             "height": 54.9,
@@ -142,7 +142,7 @@
         },
         {
             "name": "white_knight_1",
-            "type": 0,
+            "type": 6,
             "x": 75.0,
             "y": 375.0,
             "height": 54.9,
@@ -156,7 +156,7 @@
         },
         {
             "name": "white_knight_2",
-            "type": 0,
+            "type": 6,
             "x": 325.0,
             "y": 375.0,
             "height": 54.9,
@@ -170,7 +170,7 @@
         },
         {
             "name": "white_bishop_1",
-            "type": 0,
+            "type": 6,
             "x": 125.0,
             "y": 375.0,
             "height": 54.9,
@@ -184,7 +184,7 @@
         },
         {
             "name": "white_bishop_2",
-            "type": 0,
+            "type": 6,
             "x": 275.0,
             "y": 375.0,
             "height": 54.9,
@@ -198,7 +198,7 @@
         },
         {
             "name": "white_queen",
-            "type": 0,
+            "type": 6,
             "x": 175.0,
             "y": 375.0,
             "height": 54.9,
@@ -212,7 +212,7 @@
         },
         {
             "name": "white_king",
-            "type": 0,
+            "type": 6,
             "x": 225.0,
             "y": 375.0,
             "height": 54.9,
@@ -226,7 +226,7 @@
         },
         {
             "name": "black_pawn_1",
-            "type": 0,
+            "type": 6,
             "x": 25.0,
             "y": 75.0,
             "height": 54.9,
@@ -240,7 +240,7 @@
         },
         {
             "name": "black_pawn_2",
-            "type": 0,
+            "type": 6,
             "x": 75.0,
             "y": 75.0,
             "height": 54.9,
@@ -254,7 +254,7 @@
         },
         {
             "name": "black_pawn_4",
-            "type": 0,
+            "type": 6,
             "x": 175.0,
             "y": 75.0,
             "height": 54.9,
@@ -268,7 +268,7 @@
         },
         {
             "name": "black_pawn_3",
-            "type": 0,
+            "type": 6,
             "x": 125.0,
             "y": 75.0,
             "height": 54.9,
@@ -282,7 +282,7 @@
         },
         {
             "name": "black_pawn_5",
-            "type": 0,
+            "type": 6,
             "x": 225.0,
             "y": 75.0,
             "height": 54.9,
@@ -296,7 +296,7 @@
         },
         {
             "name": "black_pawn_6",
-            "type": 0,
+            "type": 6,
             "x": 275.0,
             "y": 75.0,
             "height": 54.9,
@@ -310,7 +310,7 @@
         },
         {
             "name": "black_pawn_8",
-            "type": 0,
+            "type": 6,
             "x": 375.0,
             "y": 75.0,
             "height": 54.9,
@@ -324,7 +324,7 @@
         },
         {
             "name": "black_pawn_7",
-            "type": 0,
+            "type": 6,
             "x": 325.0,
             "y": 75.0,
             "height": 54.9,
@@ -338,7 +338,7 @@
         },
         {
             "name": "black_rook_1",
-            "type": 0,
+            "type": 6,
             "x": 25.0,
             "y": 25.0,
             "height": 54.9,
@@ -352,7 +352,7 @@
         },
         {
             "name": "black_rook_2",
-            "type": 0,
+            "type": 6,
             "x": 375.0,
             "y": 25.0,
             "height": 54.9,
@@ -366,7 +366,7 @@
         },
         {
             "name": "black_knight_1",
-            "type": 0,
+            "type": 6,
             "x": 75.0,
             "y": 25.0,
             "height": 54.9,
@@ -380,7 +380,7 @@
         },
         {
             "name": "black_knight_2",
-            "type": 0,
+            "type": 6,
             "x": 325.0,
             "y": 25.0,
             "height": 54.9,
@@ -394,7 +394,7 @@
         },
         {
             "name": "black_bishop_1",
-            "type": 0,
+            "type": 6,
             "x": 125.0,
             "y": 25.0,
             "height": 54.9,
@@ -408,7 +408,7 @@
         },
         {
             "name": "black_bishop_2",
-            "type": 0,
+            "type": 6,
             "x": 275.0,
             "y": 25.0,
             "height": 54.9,
@@ -422,7 +422,7 @@
         },
         {
             "name": "black_queen",
-            "type": 0,
+            "type": 6,
             "x": 175.0,
             "y": 25.0,
             "height": 54.9,
@@ -436,7 +436,7 @@
         },
         {
             "name": "black_king",
-            "type": 0,
+            "type": 6,
             "x": 225.0,
             "y": 25.0,
             "height": 54.9,
