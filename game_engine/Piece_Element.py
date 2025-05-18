@@ -12,16 +12,11 @@ class PieceElement(GameElement):
 
     def do_function(self, index, mouse_pos=None):
         #temporary testing function
-        print("piece function ", index)
 
         if index == 0:
-            print("moved piece")
             self.set_position(mouse_pos)
-            print("new position: ", self.x, self.y)
-            print("new rectangle position: ", self.rectangle.x, self.rectangle.y)
 
         elif index == 1:
-            print("moving piece")
             return self
         
         return None
