@@ -1,0 +1,492 @@
+{
+    "items": [
+        {
+            "name": "white_pawn_2",
+            "type": 6,
+            "x": 75.0,
+            "y": 325.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_pawn_1",
+            "type": 6,
+            "x": 25.0,
+            "y": 325.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_pawn_3",
+            "type": 6,
+            "x": 125.0,
+            "y": 325.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_pawn_4",
+            "type": 6,
+            "x": 175.0,
+            "y": 325.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_pawn_5",
+            "type": 6,
+            "x": 225.0,
+            "y": 325.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_pawn_6",
+            "type": 6,
+            "x": 275.0,
+            "y": 325.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_pawn_7",
+            "type": 6,
+            "x": 325.0,
+            "y": 325.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_pawn_8",
+            "type": 6,
+            "x": 375.0,
+            "y": 325.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_rook_1",
+            "type": 6,
+            "x": 25.0,
+            "y": 375.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\rook.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_rook_2",
+            "type": 6,
+            "x": 375.0,
+            "y": 375.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\rook.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_knight_1",
+            "type": 6,
+            "x": 75.0,
+            "y": 375.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\knight.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_knight_2",
+            "type": 6,
+            "x": 325.0,
+            "y": 375.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\knight.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_bishop_1",
+            "type": 6,
+            "x": 125.0,
+            "y": 375.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\bishop.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_bishop_2",
+            "type": 6,
+            "x": 275.0,
+            "y": 375.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\bishop.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_queen",
+            "type": 6,
+            "x": 175.0,
+            "y": 375.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\queen.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "white_king",
+            "type": 6,
+            "x": 225.0,
+            "y": 375.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\whitePieces\\king.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_pawn_1",
+            "type": 6,
+            "x": 25.0,
+            "y": 75.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_pawn_2",
+            "type": 6,
+            "x": 75.0,
+            "y": 75.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_pawn_4",
+            "type": 6,
+            "x": 175.0,
+            "y": 75.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_pawn_3",
+            "type": 6,
+            "x": 125.0,
+            "y": 75.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_pawn_5",
+            "type": 6,
+            "x": 225.0,
+            "y": 75.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_pawn_6",
+            "type": 6,
+            "x": 275.0,
+            "y": 75.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_pawn_8",
+            "type": 6,
+            "x": 375.0,
+            "y": 75.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_pawn_7",
+            "type": 6,
+            "x": 325.0,
+            "y": 75.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\pawn.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_rook_1",
+            "type": 6,
+            "x": 25.0,
+            "y": 25.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\rook.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_rook_2",
+            "type": 6,
+            "x": 375.0,
+            "y": 25.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\rook.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_knight_1",
+            "type": 6,
+            "x": 75.0,
+            "y": 25.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\knight.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_knight_2",
+            "type": 6,
+            "x": 325.0,
+            "y": 25.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\knight.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_bishop_1",
+            "type": 6,
+            "x": 125.0,
+            "y": 25.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\bishop.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_bishop_2",
+            "type": 6,
+            "x": 275.0,
+            "y": 25.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\bishop.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_queen",
+            "type": 6,
+            "x": 175.0,
+            "y": 25.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\queen.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        },
+        {
+            "name": "black_king",
+            "type": 6,
+            "x": 225.0,
+            "y": 25.0,
+            "height": 54.9,
+            "width": 54.9,
+            "image_path": "chessGame\\images\\blackPieces\\king.png",
+            "flags": {
+                "IsSnapping": true,
+                "IsDraggable": true,
+                "IsDestroyable": true,
+                "IsStackable": false
+            }
+        }
+    ],
+    "board": {
+        "x": 200.0,
+        "y": 200.0,
+        "height": 440.9595,
+        "width": 440.9595,
+        "image_path": "chessGame\\images\\board.jpg",
+        "tiles": []
+    }
+}
