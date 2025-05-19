@@ -14,7 +14,7 @@ class ElementTypes(Enum):
 
     @staticmethod
     def flags(type):
-        typesFlags = [PieceFlags, CardFlags, DeckFlags, DiceFlags, TileFlags, MenuFlags, ButtonFlags, BoardFlags]
+        typesFlags = [ButtonFlags, CardFlags, DeckFlags, DecorativeFlags, DiceFlags, MenuFlags, PieceFlags, BoardFlags, TileFlags]
         return typesFlags[type.value]
 
 class PieceFlags(Enum):
@@ -45,4 +45,7 @@ class ButtonFlags(Enum):
     pass
 
 class BoardFlags(Enum):
+    pass
+
+class DecorativeFlags(Enum):
     pass
