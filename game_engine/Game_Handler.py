@@ -53,9 +53,10 @@ class GameHandler():
                 if item_type == 6:  # piece
                     flag_data = item_data["flags"]
                     entity = Piece_Element.PieceElement(
+                        entity_list[0],
                         item_data["name"],
-                        item_data["x"],
-                        item_data["y"],
+                        item_data["x"] + board_data["x"],
+                        item_data["y"] + board_data["y"],
                         item_data["width"],
                         item_data["height"],
                         item_data["image_path"],

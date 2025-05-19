@@ -516,8 +516,8 @@
     "board": {
         "x": 200.0,
         "y": 200.0,
-        "height": 440.9595,
-        "width": 440.9595,
+        "height": 400.95,
+        "width": 401.40000000000003,
         "image_path": "chessGame\\images\\board.jpg",
         "tiles": [
             {

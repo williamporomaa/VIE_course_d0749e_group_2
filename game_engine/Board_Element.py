@@ -9,7 +9,10 @@ class BoardElement(GameElement):
         self.height = height
         self.image_path = image_path
         self.elements = []
-        self.tiles = tiles
+
+        self.tiles = []
+        for tile in tiles:
+            self.tiles.append((tile["x"]+x,tile["y"]+y))
 
     def add_element(self, element):
         self.elements.append(element)
