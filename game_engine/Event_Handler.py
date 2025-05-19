@@ -37,7 +37,7 @@ class EventHandler:
                             self.mouse_listener = self.right_clicked.do_function(index)
                             if self.right_clicked.keep_alive == False:
                                 self.entity_list.remove(self.right_clicked)
-                            
+                                
                         #close popup no matter if the button was clicked or left click was outside
                         self.popup = None
                         self.graphics_handler.popup = None
@@ -70,7 +70,8 @@ class EventHandler:
             elif event.type == pg.MOUSEMOTION:
                 if self.left_clicked:
                     if self.left_clicked.element_type == 6:
-                        self.left_clicked.do_function(0, event.pos)
+                        if self.left_clicked.dragable:
+                            self.left_clicked.do_function(0, event.pos)
             
     
     def entity_right_click_event(self, entity, mouse_pos):

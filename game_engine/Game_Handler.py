@@ -51,6 +51,7 @@ class GameHandler():
             for item_data in items_data:
                 item_type = item_data.get("type")
                 if item_type == 6:  # piece
+                    flag_data = item_data["flags"]
                     entity = Piece_Element.PieceElement(
                         item_data["name"],
                         item_data["x"],
@@ -58,10 +59,15 @@ class GameHandler():
                         item_data["width"],
                         item_data["height"],
                         item_data["image_path"],
-                        #item_data["moveable"],
-                        #item_data["allowed_movement"]
+                        #flags:
+                        flag_data["IsRemovable"],
+                        flag_data["IsSnapping"],
+                        flag_data["IsMoveable"],
+                        flag_data["IsDraggable"]
+                        flag_data["IsStackable"]
                     )
                 elif item_type == 2:  # deck
+                    flag_data = item_data["flags"]
                     entity = Deck_Element.DeckElement(
                         item_data["name"],
                         item_data["x"],
@@ -72,6 +78,7 @@ class GameHandler():
                         item_data["card_list"]
                     )
                 elif item_type == 1:  # card
+                    flag_data = item_data["flags"]
                     entity = Card_Element.CardElement(
                         item_data["name"],
                         item_data["x"],
@@ -83,6 +90,7 @@ class GameHandler():
                         item_data["card_value"]
                     )
                 elif item_type == 4:  # dice
+                    flag_data = item_data["flags"]
                     entity = Dice_Element.DiceElement(
                         item_data["name"],
                         item_data["x"],
