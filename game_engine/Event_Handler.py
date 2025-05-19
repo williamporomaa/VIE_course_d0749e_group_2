@@ -23,7 +23,6 @@ class EventHandler:
                     sys.exit()
             if event.type == pg.MOUSEBUTTONDOWN:
                 if event.button == 1:
-
                     #assume move, this is not pretty but it works
                     if self.mouse_listener:
                         self.mouse_listener.do_function(-1, event.pos)
@@ -66,12 +65,16 @@ class EventHandler:
                 else:
                     continue
             elif event.type == pg.MOUSEBUTTONUP:
+                if(self.left_clicked.should_snap):
+                    self.left_clicked.snapping = True
+                self.left_clicked.do_function(-1, event.pos)
                 self.left_clicked = None
             elif event.type == pg.MOUSEMOTION:
                 if self.left_clicked:
                     if self.left_clicked.element_type == 6:
                         if self.left_clicked.dragable:
-                            self.left_clicked.do_function(0, event.pos)
+                            self.left_clicked.snapping = False
+                            self.left_clicked.do_function(-1, event.pos)
             
     
     def entity_right_click_event(self, entity, mouse_pos):

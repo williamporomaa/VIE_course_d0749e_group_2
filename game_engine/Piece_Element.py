@@ -8,6 +8,7 @@ class PieceElement(GameElement):
         self.dragable = dragable
         self.stackable = stackable
         self.snapping = snapping
+        self.should_snap = snapping
         if self.snapping:
             self.snap((x,y))
 
