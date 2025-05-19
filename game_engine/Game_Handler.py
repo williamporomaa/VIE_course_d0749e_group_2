@@ -62,8 +62,8 @@ class GameHandler():
                         #flags:
                         flag_data["IsRemovable"],
                         flag_data["IsSnapping"],
-                        flag_data["IsMoveable"],
-                        flag_data["IsDraggable"]
+                        flag_data["IsMovable"],
+                        flag_data["IsDraggable"],
                         flag_data["IsStackable"]
                     )
                 elif item_type == 2:  # deck
@@ -114,5 +114,5 @@ class GameHandler():
             print(f"Error reading entity list: {e}")
             return []
 
-#GameHandler = GameHandler()
-#GameHandler.game_Loop()
+GameHandler = GameHandler()
+GameHandler.game_Loop()

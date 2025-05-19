@@ -12,15 +12,18 @@ class PieceElement(GameElement):
         menu = ["close"]
         if(self.moveable):
             menu.append("move")
-        menu.append("remove")
+        if(self.removable):
+            menu.append("remove")
         return menu
 
     def do_function(self, index, mouse_pos=None):
         #temporary testing function
     
-        if index == 0:
+        if index == -1:
             self.set_position(mouse_pos)
-
+        elif index == 0:
+            #closing menu happens in event handler
+            pass
         elif index == 1:
             if self.moveable:
                 return self

@@ -251,7 +251,7 @@
             "flags": {
                 "IsSnapping": true,
                 "IsDraggable": true,
-                "IsRemovable": true,
+                "IsRemovable": false,
                 "IsStackable": false,
                 "IsMovable": true
             }
@@ -507,7 +507,7 @@
             "flags": {
                 "IsSnapping": true,
                 "IsDraggable": true,
-                "IsRemovable": true,
+                "IsRemovable": false,
                 "IsStackable": false,
                 "IsMovable": true
             }

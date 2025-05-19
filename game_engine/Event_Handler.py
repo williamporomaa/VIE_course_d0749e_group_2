@@ -26,7 +26,7 @@ class EventHandler:
 
                     #assume move, this is not pretty but it works
                     if self.mouse_listener:
-                        self.mouse_listener.do_function(0, event.pos)
+                        self.mouse_listener.do_function(-1, event.pos)
                         self.mouse_listener = None
                     #logic for clicking popup buttons
                     elif self.popup:
