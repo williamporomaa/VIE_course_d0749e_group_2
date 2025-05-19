@@ -29,7 +29,7 @@ class GraphicsHandler():
 
         for entity in self.entities_to_render:
             if entity.image_path:
-                path = os.path.join(entity.image_path)
+                path = os.path.join(self.folder_path, entity.image_path)
                 image = pg.image.load(path).convert_alpha()
                 image = pg.transform.scale(image, (entity.width, entity.height))
                 self.screen.blit(image, (entity.x, entity.y))
