@@ -20,8 +20,9 @@ class ElementTypes(Enum):
 class PieceFlags(Enum):
     IsSnapping = 0
     IsDraggable = 1
-    IsDestroyable = 2
+    IsRemovable = 2
     IsStackable = 3
+    IsMovable = 4
 
 class CardFlags(Enum):
     IsFlippable = 0

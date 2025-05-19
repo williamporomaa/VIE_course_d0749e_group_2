@@ -106,5 +106,5 @@ class GameHandler():
             print(f"Error reading entity list: {e}")
             return []
 
-GameHandler = GameHandler()
-GameHandler.game_Loop()
+#GameHandler = GameHandler()
+#GameHandler.game_Loop()
