@@ -80,10 +80,17 @@ class SaveLoadButton(QComboBox):
                     "height": item.getHeight(),
                     "width": item.getWidth(),
                     "image_path": item.imagePath,
-                    "flags": item.getFlagsValues()
+                    "flags": self.getFlagsData(item)
                 }
                 items_data.append(item_data)
         return items_data
+
+    def getFlagsData(self, item):
+        flags_data = {}
+        itemFlags = item.getFlagsValues()
+        for flag in ElementTypes.flags(item.elementType):
+            flags_data[flag.name] = flag.value in itemFlags
+        return flags_data
 
     def setItemsData(self, items_data):
         for item_data in items_data:
@@ -91,9 +98,10 @@ class SaveLoadButton(QComboBox):
             item.elementType = ElementTypes(item_data["type"])
             item.move(item_data["x"], item_data["y"])
             item.changeScale(item_data["height"]/item.getHeight())
-            for flagValue in item_data["flags"]:
-                flag = ElementTypes.flags(item.elementType)(flagValue)
-                item.gameFlags.append(flag)
+            for flagName,bool in item_data["flags"].items():
+                if bool:
+                    flag = ElementTypes.flags(item.elementType)[flagName]
+                    item.gameFlags.append(flag)
 
     def getBoardData(self):
         for _, item in self.mainWidget.assetList.items.items():

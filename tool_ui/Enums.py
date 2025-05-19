@@ -14,14 +14,15 @@ class ElementTypes(Enum):
 
     @staticmethod
     def flags(type):
-        typesFlags = [PieceFlags, CardFlags, DeckFlags, DiceFlags, TileFlags, MenuFlags, ButtonFlags, BoardFlags]
+        typesFlags = [ButtonFlags, CardFlags, DeckFlags, DecorativeFlags, DiceFlags, MenuFlags, PieceFlags, BoardFlags, TileFlags]
         return typesFlags[type.value]
 
 class PieceFlags(Enum):
     IsSnapping = 0
     IsDraggable = 1
-    IsDestroyable = 2
+    IsRemovable = 2
     IsStackable = 3
+    IsMovable = 4
 
 class CardFlags(Enum):
     IsFlippable = 0
@@ -45,4 +46,7 @@ class ButtonFlags(Enum):
     pass
 
 class BoardFlags(Enum):
+    pass
+
+class DecorativeFlags(Enum):
     pass

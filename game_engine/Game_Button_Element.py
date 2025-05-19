@@ -1,7 +1,5 @@
 from game_engine.Game_Element import GameElement
 from game_engine.Audio_Handler import AudioHandler
-from game_engine.Game_Handler import GameHandler
-from game_engine.Game_Menu import GameMenu
 import pygame as pg
 import sys
 
