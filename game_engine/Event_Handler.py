@@ -65,10 +65,14 @@ class EventHandler:
                 else:
                     continue
             elif event.type == pg.MOUSEBUTTONUP:
-                if(self.left_clicked.should_snap):
-                    self.left_clicked.snapping = True
-                self.left_clicked.do_function(-1, event.pos)
-                self.left_clicked = None
+                if self.left_clicked:
+                    if self.left_clicked.element_type == 6:
+                        if(self.left_clicked.should_snap):
+                            self.left_clicked.snapping = True
+                        self.left_clicked.do_function(-1, event.pos)
+                        self.left_clicked = None
+                    else:
+                        pass
             elif event.type == pg.MOUSEMOTION:
                 if self.left_clicked:
                     if self.left_clicked.element_type == 6:
