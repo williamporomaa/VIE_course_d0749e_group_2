@@ -16,11 +16,11 @@ class EventHandler:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()
-                sys.exit()
+                #sys.exit() # Uncomment this if you want to exit the program when closing pygame window
             elif event.type == pg.KEYDOWN:
                 if event.key == pg.K_q:
                     pg.quit()
-                    sys.exit()
+                    #sys.exit() # Uncomment this if you want to exit the program when closing pygame window
             if event.type == pg.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     #assume move, this is not pretty but it works
