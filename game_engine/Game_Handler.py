@@ -8,8 +8,8 @@ from game_engine import Audio_Handler, Board_Element, Game_Button_Element, Card_
 import os
 
 class GameHandler():
-    def __init__(self):
-        self.entity_list = self.read_Entity_List()
+    def __init__(self, path):
+        self.entity_list = self.read_Entity_List(path)
         pg.display.init()
         main_surface = pg.display.set_mode((1000, 800))
         self.graphics_handler = GraphicsHandler(self.entity_list, main_surface)
@@ -24,10 +24,10 @@ class GameHandler():
             #handle events
             #uh something else?
 
-    def read_Entity_List(self):
+    def read_Entity_List(self, path):
         try:
             # Prompt the user to enter the path to the JSON file
-            file_path = (r"./chessGame/chess.json")
+            file_path = (path)
             with open(file_path, 'r') as file:
                 game_state = json.load(file)
                 
@@ -115,5 +115,5 @@ class GameHandler():
             print(f"Error reading entity list: {e}")
             return []
 
-GameHandler = GameHandler()
-GameHandler.game_Loop()
+#GameHandler = GameHandler(path)
+#GameHandler.game_Loop()

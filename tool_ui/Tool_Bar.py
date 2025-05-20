@@ -1,6 +1,6 @@
 from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QAction, QIcon
-from PySide6.QtWidgets import QToolBar
+from PySide6.QtWidgets import QToolBar, QFileDialog
 
 from File_System_View import FileSystemView
 from Grid_Manager import GridButton
@@ -35,6 +35,7 @@ class ToolBar(QToolBar):
         self.fileSystem.show()
 
     def buttonPlayClicked(self):
-        gameHandler = GameHandler()
+        file_path, _ = QFileDialog.getOpenFileName(self, "Run Game", "", "JSON Files (*.json)")
+        gameHandler = GameHandler(file_path)
         gameHandler.game_Loop()
 
