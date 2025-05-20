@@ -27,7 +27,13 @@ class GameHandler():
     def read_Entity_List(self):
         try:
             # Prompt the user to enter the path to the JSON file
-            file_path = (r"./chessGame/chess.json")
+            try:
+            # PyInstaller creates a temp folder and stores path in _MEIPASS
+                folder_path = sys._MEIPASS
+            except AttributeError:
+                folder_path = os.path.abspath(".")
+            file_path = folder_path + "/chessGame/chess.json"
+            print(file_path)
             with open(file_path, 'r') as file:
                 game_state = json.load(file)
                 
@@ -115,5 +121,5 @@ class GameHandler():
             print(f"Error reading entity list: {e}")
             return []
 
-GameHandler = GameHandler()
-GameHandler.game_Loop()
+#GameHandler = GameHandler()
+#GameHandler.game_Loop()

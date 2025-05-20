@@ -1,13 +1,12 @@
 import sys
-
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from PySide6.QtCore import Signal
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QGraphicsView, QHBoxLayout, \
     QSizePolicy, QGraphicsItem
 
-from Game_Elements_List import AssetList
-from Tool_Bar import ToolBar
-from Graphics_Scene import GraphicScene
-from Game_Element_Settings import ElementView
+from tool_ui import Game_Elements_List, Tool_Bar, Graphics_Scene, Game_Element_Settings
+
 
 
 class MainWidget(QWidget):
@@ -24,13 +23,13 @@ class MainWidget(QWidget):
         self.setGeometry(300, 300, self.width, self.height)
 
         # graphic view
-        self.scene = GraphicScene()
+        self.scene = Graphics_Scene.GraphicScene()
         self.scene.setSceneRect(0, 0, 400, 400)
         view = QGraphicsView(self.scene)
         view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         # item list
-        self.assetList = AssetList(self)
+        self.assetList = Game_Elements_List.AssetList(self)
         self.assetList.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         # element view
@@ -38,7 +37,7 @@ class MainWidget(QWidget):
         self.elementOpened = []
 
         # toolbar   #note: Changed so that tool bar is generated last, this is so that the scene exists before grid_button is called, otherwise its initilaziation doesnt work
-        self.toolbar = ToolBar(self, dir_path)
+        self.toolbar = Tool_Bar.ToolBar(self, dir_path)
 
         # organize the widgets
         # vertical layout (toolbar - horizontal layout [item list - view - item attributes])
@@ -54,7 +53,7 @@ class MainWidget(QWidget):
 
     def addElementView(self, item):
         if not item.name in self.elementOpened:
-            view = ElementView(self, item)
+            view = Game_Element_Settings.ElementView(self, item)
             self.actualizeSignal.connect(view.actualizePosAndScale)
             self.elementView.addWidget(view)
             self.elementOpened.append(item.name)

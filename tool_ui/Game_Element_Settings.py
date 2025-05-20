@@ -1,7 +1,7 @@
 from PySide6.QtGui import QAction, QIcon
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QToolBar, QLineEdit, QHBoxLayout, QComboBox, QMenu
 
-from Enums import ElementTypes
+from tool_ui.Enums import ElementTypes
 
 
 class ElementView(QWidget):

@@ -1,7 +1,7 @@
 from PySide6.QtGui import QPixmap, Qt, QImage
 from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsItem
 
-from Enums import ElementTypes, PieceFlags
+from tool_ui.Enums import ElementTypes, PieceFlags
 
 
 class GraphicItem(QGraphicsPixmapItem):

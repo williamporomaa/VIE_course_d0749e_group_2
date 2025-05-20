@@ -2,9 +2,9 @@ from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QAction, QIcon
 from PySide6.QtWidgets import QToolBar
 
-from File_System_View import FileSystemView
-from Grid_Manager import GridButton
-from Save_Load_Manager import SaveLoadButton
+from tool_ui.File_System_View import FileSystemView
+from tool_ui.Grid_Manager import GridButton
+from tool_ui.Save_Load_Manager import SaveLoadButton
 from game_engine.Game_Handler import GameHandler
 
 

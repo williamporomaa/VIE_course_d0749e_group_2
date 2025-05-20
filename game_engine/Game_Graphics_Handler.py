@@ -12,9 +12,13 @@ class GraphicsHandler():
         self.entities_to_render = entities_to_render        
         self.scene_width = main_surface.get_width()
         self.scene_height = main_surface.get_height()
-        self.folder_path = r"chessGame/images"
-        image_path = os.path.join(self.folder_path, "background.jpg")
-        print(image_path)
+        try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+            self.folder_path = sys._MEIPASS
+        except AttributeError:
+            self.folder_path = os.path.abspath(".")
+        self.folder_path = self.folder_path + "/chessGame/images"
+        image_path = self.folder_path + "/background.jpg"
         main_surface.fill('white')
         self.background = pg.image.load(image_path).convert()
         self.screen = main_surface
