@@ -9,12 +9,12 @@ import os
 
 class GameHandler():
     def __init__(self, path):
+        print("GameHandler initialized with path:", path)
         self.entity_list = self.read_Entity_List(path)
         pg.display.init()
         main_surface = pg.display.set_mode((1000, 800))
         self.graphics_handler = GraphicsHandler(self.entity_list, main_surface)
         self.event_handler = EventHandler(self, self.entity_list)
-        print(self.entity_list)
     #quit logic is a bit funky rn, working on a fix but its not prioritised
     def game_Loop(self):
         while True:
@@ -33,7 +33,6 @@ class GameHandler():
             except AttributeError:
                 folder_path = os.path.abspath(".")
             file_path = folder_path + "/chessGame/chess.json"
-            print(file_path)
             with open(file_path, 'r') as file:
                 game_state = json.load(file)
                 
@@ -121,5 +120,5 @@ class GameHandler():
             print(f"Error reading entity list: {e}")
             return []
 
-#GameHandler = GameHandler()
+#GameHandler = GameHandler("C:/Users/william/LTU_DATA/year_4/VIE/VIE_course_d0749e_group_2/chessGame/chess.json")
 #GameHandler.game_Loop()

@@ -17,8 +17,7 @@ class GraphicsHandler():
             self.folder_path = sys._MEIPASS
         except AttributeError:
             self.folder_path = os.path.abspath(".")
-        self.folder_path = self.folder_path + "/chessGame/images"
-        image_path = self.folder_path + "/background.jpg"
+        image_path = self.folder_path + "/chessGame/images/background.jpg"
         main_surface.fill('white')
         self.background = pg.image.load(image_path).convert()
         self.screen = main_surface
@@ -33,7 +32,7 @@ class GraphicsHandler():
 
         for entity in self.entities_to_render:
             if entity.image_path:
-                path = os.path.join(self.folder_path, entity.image_path)
+                path = self.folder_path + entity.image_path
                 image = pg.image.load(path).convert_alpha()
                 image = pg.transform.scale(image, (entity.width, entity.height))
                 self.screen.blit(image, (entity.x, entity.y))
