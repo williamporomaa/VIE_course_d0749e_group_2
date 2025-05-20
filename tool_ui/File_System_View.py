@@ -45,6 +45,7 @@ class FileSystemView(QWidget):
     def Add(self):
         path, name = self.getSelectedPath()
         relative_path = os.path.relpath(path, os.path.commonprefix([path,self.root_path]))
+        relative_path = "\\"+relative_path.removeprefix('.')
         GraphicItem(relative_path, self.mainWidget, name)
         self.close()
 

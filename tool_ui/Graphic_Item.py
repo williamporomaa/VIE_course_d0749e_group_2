@@ -1,3 +1,6 @@
+import os
+import sys
+
 from PySide6.QtGui import QPixmap, Qt, QImage
 from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsItem
 
@@ -8,7 +11,14 @@ class GraphicItem(QGraphicsPixmapItem):
     def __init__(self, path, mainWidget, name, type=ElementTypes.Piece):
         super().__init__()
 
-        self.setPixmap(QPixmap.fromImage(QImage(path)))
+        try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+            folder_path = sys._MEIPASS
+        except AttributeError:
+            folder_path = os.path.abspath(".")
+        file_path = folder_path + path
+
+        self.setPixmap(QPixmap.fromImage(QImage(file_path)))
         self.setFlag(QGraphicsItem.ItemIsMovable, True)
         self.setFlag(QGraphicsItem.ItemIsSelectable, True)
         self.setFlag(QGraphicsItem.ItemIsFocusable, True)

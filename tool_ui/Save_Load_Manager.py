@@ -135,5 +135,5 @@ class SaveLoadButton(QComboBox):
         board.elementType = ElementTypes.Board
         board.move(board_data["x"], board_data["y"])
         board.changeScale(board_data["height"] / board.getHeight())
-        self.mainWidget.toolbar.grid_button_add.generateFromTiles(board_data["tiles"])
+        #self.mainWidget.toolbar.grid_button_add.generateFromTiles(board_data["tiles"])
 
