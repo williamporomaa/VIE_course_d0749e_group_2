@@ -40,12 +40,12 @@ class FileSystemView(QWidget):
     def getSelectedPath(self):
         index = self.tree.currentIndex()
         info = self.tree.model().fileInfo(index)
-        return info.absoluteFilePath(), info.baseName()
+        return info.fileName(), info.baseName()
 
     def Add(self):
-        path, name = self.getSelectedPath()
-        relative_path = os.path.relpath(path, os.path.commonprefix([path,self.root_path]))
-        relative_path = "\\"+relative_path.removeprefix('.')
+        relative_path = "/chessGame/images/"
+        file_name, name = self.getSelectedPath()
+        relative_path = relative_path + file_name
         GraphicItem(relative_path, self.mainWidget, name)
         self.close()
 
