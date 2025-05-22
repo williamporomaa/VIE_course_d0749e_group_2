@@ -85,12 +85,15 @@ class GraphicItem(QGraphicsPixmapItem):
             y_size = self.mainWidget.scene.gridSizeY
 
             # binary search in x and then do binary search in y
-            x = self.iterativeSearch(x_size, x)
-            y = self.iterativeSearch(y_size, y)
-            # print("post-binary search x: ", x, " post-binary search y: ", y)
+            if x_size > 0 and y_size > 0:
+                x = self.iterativeSearch(x_size, x)
+                y = self.iterativeSearch(y_size, y)
+                self.setX((x + 0.5) * self.mainWidget.scene.grid_size)
+                self.setY((y + 0.5) * self.mainWidget.scene.grid_size)
+            else:
+                self.setX(x +0.5)
+                self.setY(y + 0.5)
 
-            self.setX((x + 0.5) * self.mainWidget.scene.grid_size)
-            self.setY((y + 0.5) * self.mainWidget.scene.grid_size)
         else:
             self.setX(x)
             self.setY(y)

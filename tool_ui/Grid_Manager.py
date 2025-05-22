@@ -24,7 +24,10 @@ class GridButton(QComboBox):
         for item in self.currentGrid:
             self.mainWidget.scene.removeItem(item)
         self.currentGrid.clear()
-        
+        if(index == 0):
+            self.grid_size = 0
+            self.mainWidget.scene.gridSizeX = 0
+            self.mainWidget.scene.gridSizeY = 0
         if(index == 1):
             self.grid_size = math.sqrt((scene_height*scene_width)/(8*8))
             for i in range(8):
